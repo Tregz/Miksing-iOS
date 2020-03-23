@@ -1,0 +1,614 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		020DDE5024286AFC000DBB42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020DDE4F24286AFC000DBB42 /* AppDelegate.swift */; };
+		020DDE5224286AFC000DBB42 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020DDE5124286AFC000DBB42 /* SceneDelegate.swift */; };
+		020DDE5524286AFC000DBB42 /* Miksing.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 020DDE5324286AFC000DBB42 /* Miksing.xcdatamodeld */; };
+		020DDE5724286AFC000DBB42 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020DDE5624286AFC000DBB42 /* ContentView.swift */; };
+		020DDE5924286AFE000DBB42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 020DDE5824286AFE000DBB42 /* Assets.xcassets */; };
+		020DDE5C24286AFE000DBB42 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 020DDE5B24286AFE000DBB42 /* Preview Assets.xcassets */; };
+		020DDE5F24286AFE000DBB42 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 020DDE5D24286AFE000DBB42 /* LaunchScreen.storyboard */; };
+		020DDE6A24286AFE000DBB42 /* MiksingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020DDE6924286AFE000DBB42 /* MiksingTests.swift */; };
+		020DDE7524286AFE000DBB42 /* MiksingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020DDE7424286AFE000DBB42 /* MiksingUITests.swift */; };
+		020DDE852428EE84000DBB42 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 020DDE842428EE84000DBB42 /* GoogleService-Info.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		020DDE6624286AFE000DBB42 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 020DDE4424286AFC000DBB42 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 020DDE4B24286AFC000DBB42;
+			remoteInfo = Miksing;
+		};
+		020DDE7124286AFE000DBB42 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 020DDE4424286AFC000DBB42 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 020DDE4B24286AFC000DBB42;
+			remoteInfo = Miksing;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		020DDE4C24286AFC000DBB42 /* Miksing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Miksing.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		020DDE4F24286AFC000DBB42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		020DDE5124286AFC000DBB42 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		020DDE5424286AFC000DBB42 /* Miksing.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Miksing.xcdatamodel; sourceTree = "<group>"; };
+		020DDE5624286AFC000DBB42 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		020DDE5824286AFE000DBB42 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		020DDE5B24286AFE000DBB42 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		020DDE5E24286AFE000DBB42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		020DDE6024286AFE000DBB42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		020DDE6524286AFE000DBB42 /* MiksingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MiksingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		020DDE6924286AFE000DBB42 /* MiksingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiksingTests.swift; sourceTree = "<group>"; };
+		020DDE6B24286AFE000DBB42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		020DDE7024286AFE000DBB42 /* MiksingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MiksingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		020DDE7424286AFE000DBB42 /* MiksingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiksingUITests.swift; sourceTree = "<group>"; };
+		020DDE7624286AFE000DBB42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		020DDE842428EE84000DBB42 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		020DDE4924286AFC000DBB42 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		020DDE6224286AFE000DBB42 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		020DDE6D24286AFE000DBB42 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		020DDE4324286AFC000DBB42 = {
+			isa = PBXGroup;
+			children = (
+				020DDE4E24286AFC000DBB42 /* Miksing */,
+				020DDE6824286AFE000DBB42 /* MiksingTests */,
+				020DDE7324286AFE000DBB42 /* MiksingUITests */,
+				020DDE4D24286AFC000DBB42 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		020DDE4D24286AFC000DBB42 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				020DDE4C24286AFC000DBB42 /* Miksing.app */,
+				020DDE6524286AFE000DBB42 /* MiksingTests.xctest */,
+				020DDE7024286AFE000DBB42 /* MiksingUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		020DDE4E24286AFC000DBB42 /* Miksing */ = {
+			isa = PBXGroup;
+			children = (
+				020DDE842428EE84000DBB42 /* GoogleService-Info.plist */,
+				020DDE4F24286AFC000DBB42 /* AppDelegate.swift */,
+				020DDE5124286AFC000DBB42 /* SceneDelegate.swift */,
+				020DDE5624286AFC000DBB42 /* ContentView.swift */,
+				020DDE5824286AFE000DBB42 /* Assets.xcassets */,
+				020DDE5D24286AFE000DBB42 /* LaunchScreen.storyboard */,
+				020DDE6024286AFE000DBB42 /* Info.plist */,
+				020DDE5324286AFC000DBB42 /* Miksing.xcdatamodeld */,
+				020DDE5A24286AFE000DBB42 /* Preview Content */,
+			);
+			path = Miksing;
+			sourceTree = "<group>";
+		};
+		020DDE5A24286AFE000DBB42 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				020DDE5B24286AFE000DBB42 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		020DDE6824286AFE000DBB42 /* MiksingTests */ = {
+			isa = PBXGroup;
+			children = (
+				020DDE6924286AFE000DBB42 /* MiksingTests.swift */,
+				020DDE6B24286AFE000DBB42 /* Info.plist */,
+			);
+			path = MiksingTests;
+			sourceTree = "<group>";
+		};
+		020DDE7324286AFE000DBB42 /* MiksingUITests */ = {
+			isa = PBXGroup;
+			children = (
+				020DDE7424286AFE000DBB42 /* MiksingUITests.swift */,
+				020DDE7624286AFE000DBB42 /* Info.plist */,
+			);
+			path = MiksingUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		020DDE4B24286AFC000DBB42 /* Miksing */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 020DDE7924286AFE000DBB42 /* Build configuration list for PBXNativeTarget "Miksing" */;
+			buildPhases = (
+				020DDE4824286AFC000DBB42 /* Sources */,
+				020DDE4924286AFC000DBB42 /* Frameworks */,
+				020DDE4A24286AFC000DBB42 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Miksing;
+			productName = Miksing;
+			productReference = 020DDE4C24286AFC000DBB42 /* Miksing.app */;
+			productType = "com.apple.product-type.application";
+		};
+		020DDE6424286AFE000DBB42 /* MiksingTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 020DDE7C24286AFE000DBB42 /* Build configuration list for PBXNativeTarget "MiksingTests" */;
+			buildPhases = (
+				020DDE6124286AFE000DBB42 /* Sources */,
+				020DDE6224286AFE000DBB42 /* Frameworks */,
+				020DDE6324286AFE000DBB42 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				020DDE6724286AFE000DBB42 /* PBXTargetDependency */,
+			);
+			name = MiksingTests;
+			productName = MiksingTests;
+			productReference = 020DDE6524286AFE000DBB42 /* MiksingTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		020DDE6F24286AFE000DBB42 /* MiksingUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 020DDE7F24286AFE000DBB42 /* Build configuration list for PBXNativeTarget "MiksingUITests" */;
+			buildPhases = (
+				020DDE6C24286AFE000DBB42 /* Sources */,
+				020DDE6D24286AFE000DBB42 /* Frameworks */,
+				020DDE6E24286AFE000DBB42 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				020DDE7224286AFE000DBB42 /* PBXTargetDependency */,
+			);
+			name = MiksingUITests;
+			productName = MiksingUITests;
+			productReference = 020DDE7024286AFE000DBB42 /* MiksingUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		020DDE4424286AFC000DBB42 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = Tregz;
+				TargetAttributes = {
+					020DDE4B24286AFC000DBB42 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					020DDE6424286AFE000DBB42 = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = 020DDE4B24286AFC000DBB42;
+					};
+					020DDE6F24286AFE000DBB42 = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = 020DDE4B24286AFC000DBB42;
+					};
+				};
+			};
+			buildConfigurationList = 020DDE4724286AFC000DBB42 /* Build configuration list for PBXProject "Miksing" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 020DDE4324286AFC000DBB42;
+			productRefGroup = 020DDE4D24286AFC000DBB42 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				020DDE4B24286AFC000DBB42 /* Miksing */,
+				020DDE6424286AFE000DBB42 /* MiksingTests */,
+				020DDE6F24286AFE000DBB42 /* MiksingUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		020DDE4A24286AFC000DBB42 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				020DDE5F24286AFE000DBB42 /* LaunchScreen.storyboard in Resources */,
+				020DDE852428EE84000DBB42 /* GoogleService-Info.plist in Resources */,
+				020DDE5C24286AFE000DBB42 /* Preview Assets.xcassets in Resources */,
+				020DDE5924286AFE000DBB42 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		020DDE6324286AFE000DBB42 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		020DDE6E24286AFE000DBB42 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		020DDE4824286AFC000DBB42 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				020DDE5024286AFC000DBB42 /* AppDelegate.swift in Sources */,
+				020DDE5224286AFC000DBB42 /* SceneDelegate.swift in Sources */,
+				020DDE5724286AFC000DBB42 /* ContentView.swift in Sources */,
+				020DDE5524286AFC000DBB42 /* Miksing.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		020DDE6124286AFE000DBB42 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				020DDE6A24286AFE000DBB42 /* MiksingTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		020DDE6C24286AFE000DBB42 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				020DDE7524286AFE000DBB42 /* MiksingUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		020DDE6724286AFE000DBB42 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 020DDE4B24286AFC000DBB42 /* Miksing */;
+			targetProxy = 020DDE6624286AFE000DBB42 /* PBXContainerItemProxy */;
+		};
+		020DDE7224286AFE000DBB42 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 020DDE4B24286AFC000DBB42 /* Miksing */;
+			targetProxy = 020DDE7124286AFE000DBB42 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		020DDE5D24286AFE000DBB42 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				020DDE5E24286AFE000DBB42 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		020DDE7724286AFE000DBB42 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		020DDE7824286AFE000DBB42 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		020DDE7A24286AFE000DBB42 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Miksing/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Miksing/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.tregz.Miksing;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		020DDE7B24286AFE000DBB42 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Miksing/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Miksing/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.tregz.Miksing;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		020DDE7D24286AFE000DBB42 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = MiksingTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.tregz.MiksingTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Miksing.app/Miksing";
+			};
+			name = Debug;
+		};
+		020DDE7E24286AFE000DBB42 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = MiksingTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.tregz.MiksingTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Miksing.app/Miksing";
+			};
+			name = Release;
+		};
+		020DDE8024286AFE000DBB42 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = MiksingUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.tregz.MiksingUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Miksing;
+			};
+			name = Debug;
+		};
+		020DDE8124286AFE000DBB42 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = MiksingUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.tregz.MiksingUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Miksing;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		020DDE4724286AFC000DBB42 /* Build configuration list for PBXProject "Miksing" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				020DDE7724286AFE000DBB42 /* Debug */,
+				020DDE7824286AFE000DBB42 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		020DDE7924286AFE000DBB42 /* Build configuration list for PBXNativeTarget "Miksing" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				020DDE7A24286AFE000DBB42 /* Debug */,
+				020DDE7B24286AFE000DBB42 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		020DDE7C24286AFE000DBB42 /* Build configuration list for PBXNativeTarget "MiksingTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				020DDE7D24286AFE000DBB42 /* Debug */,
+				020DDE7E24286AFE000DBB42 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		020DDE7F24286AFE000DBB42 /* Build configuration list for PBXNativeTarget "MiksingUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				020DDE8024286AFE000DBB42 /* Debug */,
+				020DDE8124286AFE000DBB42 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		020DDE5324286AFC000DBB42 /* Miksing.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				020DDE5424286AFC000DBB42 /* Miksing.xcdatamodel */,
+			);
+			currentVersion = 020DDE5424286AFC000DBB42 /* Miksing.xcdatamodel */;
+			path = Miksing.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 020DDE4424286AFC000DBB42 /* Project object */;
+}
