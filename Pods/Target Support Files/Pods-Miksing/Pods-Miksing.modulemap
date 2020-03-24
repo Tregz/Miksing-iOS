@@ -1,0 +1,6 @@
+framework module Pods_Miksing {
+  umbrella header "Pods-Miksing-umbrella.h"
+
+  export *
+  module * { export * }
+}
