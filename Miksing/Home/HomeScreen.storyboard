@@ -19,15 +19,35 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="aQp-f5-gVU">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
-                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tpU-tg-209">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mHe-Nq-wd4">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="233"/>
+                                        <subviews>
+                                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tpU-tg-209">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="233"/>
+                                                <connections>
+                                                    <segue destination="8Fh-UA-FFk" kind="embed" id="uvf-Qh-hcm"/>
+                                                </connections>
+                                            </containerView>
+                                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Og-B2-IGo">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="233"/>
+                                                <connections>
+                                                    <segue destination="lLP-Jo-bzE" kind="embed" id="aaC-ux-ZaS"/>
+                                                </connections>
+                                            </containerView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="tpU-tg-209" secondAttribute="height" multiplier="16:9" id="Qrc-b7-yMv"/>
+                                            <constraint firstItem="0Og-B2-IGo" firstAttribute="leading" secondItem="mHe-Nq-wd4" secondAttribute="leading" id="7kf-AP-Bhy"/>
+                                            <constraint firstItem="0Og-B2-IGo" firstAttribute="top" secondItem="mHe-Nq-wd4" secondAttribute="top" id="QQu-Wg-CpU"/>
+                                            <constraint firstAttribute="trailing" secondItem="tpU-tg-209" secondAttribute="trailing" id="Yg5-BY-hRv"/>
+                                            <constraint firstItem="tpU-tg-209" firstAttribute="top" secondItem="mHe-Nq-wd4" secondAttribute="top" id="ZNa-t9-MiW"/>
+                                            <constraint firstAttribute="trailing" secondItem="0Og-B2-IGo" secondAttribute="trailing" id="eUy-Wo-fhw"/>
+                                            <constraint firstAttribute="bottom" secondItem="0Og-B2-IGo" secondAttribute="bottom" id="nYX-ld-HER"/>
+                                            <constraint firstAttribute="width" secondItem="mHe-Nq-wd4" secondAttribute="height" multiplier="16:9" id="sq2-jX-1Hl"/>
+                                            <constraint firstAttribute="bottom" secondItem="tpU-tg-209" secondAttribute="bottom" id="w5G-Qg-tYZ"/>
+                                            <constraint firstItem="tpU-tg-209" firstAttribute="leading" secondItem="mHe-Nq-wd4" secondAttribute="leading" id="zb9-Ci-293"/>
                                         </constraints>
-                                        <connections>
-                                            <segue destination="8Fh-UA-FFk" kind="embed" id="uvf-Qh-hcm"/>
-                                        </connections>
-                                    </containerView>
+                                    </view>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XLe-fd-gwV">
                                         <rect key="frame" x="0.0" y="233" width="414" height="541"/>
                                         <connections>
@@ -338,6 +358,21 @@
             </objects>
             <point key="canvasLocation" x="1729" y="600"/>
         </scene>
+        <!--Play Web-->
+        <scene sceneID="eni-4P-nvL">
+            <objects>
+                <viewController id="lLP-Jo-bzE" customClass="PlayWeb" customModule="Miksing" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4RZ-LP-vFs">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="233"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="NND-Sr-V7v"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9o0-yz-HNu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1730" y="-230"/>
+        </scene>
         <!--Playlist Navigation-->
         <scene sceneID="v2x-aq-1DQ">
             <objects>
@@ -358,7 +393,7 @@
         <!--AV Player View Controller-->
         <scene sceneID="ixQ-0I-OLq">
             <objects>
-                <avPlayerViewController videoGravity="AVLayerVideoGravityResizeAspect" id="8Fh-UA-FFk" customClass="CorePlayer" customModule="Miksing" customModuleProvider="target" sceneMemberID="viewController"/>
+                <avPlayerViewController videoGravity="AVLayerVideoGravityResizeAspect" id="8Fh-UA-FFk" customClass="PlayVideo" customModule="Miksing" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aDM-Uy-e6h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="799" y="-112"/>
@@ -381,6 +416,20 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="okE-d9-vFP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="801" y="229"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="AL2-XI-nnr">
+            <objects>
+                <viewController id="feS-fS-Nar" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="azJ-iZ-fMZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="la2-H7-QJK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-120" y="498"/>
         </scene>
     </scenes>
     <resources>

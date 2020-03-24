@@ -9,13 +9,13 @@
 import AVKit
 import FirebaseStorage
 
-class CorePlayer : AVPlayerViewController {
+class PlayVideo : AVPlayerViewController {
     
     override func viewDidLoad() {
         let anim = Storage.storage().reference().child("anim/Miksing_Logo-Animated.mp4")
         anim.downloadURL { url, error in
             if let error = error {
-                // Handle any errors
+                print(error)
             } else {
                 let item = AVPlayerItem(url: url!)
                 NotificationCenter.default.addObserver(forName: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil, queue: nil) { notification in

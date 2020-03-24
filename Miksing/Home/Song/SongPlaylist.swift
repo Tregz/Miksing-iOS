@@ -10,7 +10,9 @@ import UIKit
 import CoreData
 
 class SongPlaylist : UITableViewController, NSFetchedResultsControllerDelegate {
-    
+
+    let cache:NSCache<AnyObject, AnyObject>! = NSCache()
+    let session = URLSession.shared
     var context: NSManagedObjectContext? = nil
     var filters:[Int?]? = []
 
@@ -45,8 +47,7 @@ class SongPlaylist : UITableViewController, NSFetchedResultsControllerDelegate {
         return _fetchedResultsController!
     }
 
-    func controller(
-        _ controller: NSFetchedResultsController<NSFetchRequestResult>,
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
         didChange anObject: Any,
         at indexPath: IndexPath?,
         for type: NSFetchedResultsChangeType,
@@ -68,8 +69,7 @@ class SongPlaylist : UITableViewController, NSFetchedResultsControllerDelegate {
         }
     }
     
-    func controller(
-        _ controller: NSFetchedResultsController<NSFetchRequestResult>,
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
         didChange sectionInfo: NSFetchedResultsSectionInfo,
         atSectionIndex sectionIndex: Int,
         for type: NSFetchedResultsChangeType
@@ -128,36 +128,55 @@ class SongPlaylist : UITableViewController, NSFetchedResultsControllerDelegate {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return fetchedResultsController.sections?.count ?? 0
     }
-    
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if let sections = fetchedResultsController.sections { return sections[section].name }
-        return nil
-    }
-    
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let cell = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SectionLabel")
-        cell?.textLabel?.text = fetchedResultsController.sections?[section].name
-        print("name table: " + (fetchedResultsController.sections?[section].name ?? ""))
-        return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let sectionInfo = fetchedResultsController.sections![section]
-        return sectionInfo.numberOfObjects
-    }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SongCell
         let song = fetchedResultsController.object(at: indexPath)
         configureCell(cell, withEvent: song, indexPath: indexPath)
         return cell
     }
-                
-    func configureCell(_ cell: SongCell, withEvent song: Song, indexPath: IndexPath) {
-        cell.name.text = song.name ?? ""
-        if (getCurrentTabPosition() == 0) {
-             cell.mark.text = song.mark ?? "Title"
+    
+    override func tableView(_ tableView: UITableView,
+        didSelectRowAt indexPath: IndexPath) {
+        if (tableView.cellForRow(at:indexPath) != nil) {
+            let songId: [String: String] = ["id": fetchedResultsController.object(at: indexPath).id ?? ""]
+            NotificationCenter.default.post(name: Notification.Name("YouTubePlay"), object: nil, userInfo: songId)
         }
+    }
+    
+    override func tableView(_ tableView: UITableView,
+        numberOfRowsInSection section: Int) -> Int {
+        return fetchedResultsController.sections![section].numberOfObjects
+    }
+    
+    override func tableView(_ tableView: UITableView,
+        titleForHeaderInSection section: Int) -> String? {
+        if let sections = fetchedResultsController.sections { return sections[section].name }
+        return nil
+    }
+    
+    override func tableView(_ tableView: UITableView,
+        viewForHeaderInSection section: Int) -> UIView? {
+        let cell = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SectionLabel")
+        cell?.textLabel?.text = fetchedResultsController.sections?[section].name
+        return cell
+    }
+                
+    private func configureCell(_ cell: SongCell, withEvent song: Song, indexPath: IndexPath) {
+        cell.name.text = song.name ?? ""
+        cell.mark.text = song.mark ?? ""
+        if (self.cache.object(forKey: song.id as AnyObject) != nil) {
+            cell.icon.image = self.cache.object(forKey: song.id as AnyObject) as? UIImage }
+        else if (song.id != nil) {
+            let url:URL! = URL(string: "https://img.youtube.com/vi/" + song.id! + "/0.jpg")
+            var task: URLSessionDownloadTask!
+            task = session.downloadTask(with: url, completionHandler: { (location, response, error) -> Void in
+                if let data = try? Data(contentsOf: url) { DispatchQueue.main.async(execute: { () -> Void in
+                        let img:UIImage! = UIImage(data: data)
+                        cell.icon.image = img
+                        self.cache.setObject(img, forKey: song.id as AnyObject) }) } })
+            task.resume() }
     }
                 
 }
