@@ -19,13 +19,15 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="aQp-f5-gVU">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l9R-SN-ZBm">
+                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tpU-tg-209">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="233"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="l9R-SN-ZBm" secondAttribute="height" multiplier="16:9" id="o3l-yR-T0R"/>
+                                            <constraint firstAttribute="width" secondItem="tpU-tg-209" secondAttribute="height" multiplier="16:9" id="Qrc-b7-yMv"/>
                                         </constraints>
-                                    </view>
+                                        <connections>
+                                            <segue destination="8Fh-UA-FFk" kind="embed" id="uvf-Qh-hcm"/>
+                                        </connections>
+                                    </containerView>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XLe-fd-gwV">
                                         <rect key="frame" x="0.0" y="233" width="414" height="541"/>
                                         <connections>
@@ -35,9 +37,7 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="XLe-fd-gwV" secondAttribute="bottom" id="KGI-c3-0lj"/>
-                                    <constraint firstItem="l9R-SN-ZBm" firstAttribute="bottom" secondItem="XLe-fd-gwV" secondAttribute="top" id="oW1-bH-BD7"/>
                                     <constraint firstAttribute="trailing" secondItem="XLe-fd-gwV" secondAttribute="trailing" id="q3s-ug-X4v"/>
-                                    <constraint firstItem="l9R-SN-ZBm" firstAttribute="top" secondItem="aQp-f5-gVU" secondAttribute="top" id="zcd-HM-RZJ"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -116,7 +116,7 @@
         <!--Playlist-->
         <scene sceneID="6vG-e4-H1u">
             <objects>
-                <tableViewController id="6cC-6N-1W4" customClass="SongPlaylist" sceneMemberID="viewController">
+                <tableViewController id="6cC-6N-1W4" customClass="SongPlaylist" customModule="Miksing" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="pi3-Lz-uzp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="541"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -220,7 +220,7 @@
         <!--Prepare-->
         <scene sceneID="4Zu-Wl-o5P">
             <objects>
-                <tableViewController id="eC4-nf-J1F" customClass="SongSelected" sceneMemberID="viewController">
+                <tableViewController id="eC4-nf-J1F" customClass="SongSelected" customModule="Miksing" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="XoU-Hh-dor">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="541"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -325,7 +325,7 @@
         <scene sceneID="5Xs-d8-oSd">
             <objects>
                 <navigationController id="3M7-Eb-LH2" userLabel="Selected Navigation" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Prepare" image="play.rectangle" catalog="system" id="xoU-Wc-9iG"/>
+                    <tabBarItem key="tabBarItem" title="Prepare" image="SF_play_rectangle" id="xoU-Wc-9iG"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bRJ-Mn-Aee">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -342,7 +342,7 @@
         <scene sceneID="v2x-aq-1DQ">
             <objects>
                 <navigationController id="Lwv-zX-vnx" userLabel="Playlist Navigation" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Playlist" image="music.note.list" catalog="system" id="BJQ-iW-RQP"/>
+                    <tabBarItem key="tabBarItem" title="Playlist" image="SF_music_note" id="BJQ-iW-RQP"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SOZ-RC-3ld">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -354,6 +354,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="13a-Z2-ga4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1729" y="110"/>
+        </scene>
+        <!--AV Player View Controller-->
+        <scene sceneID="ixQ-0I-OLq">
+            <objects>
+                <avPlayerViewController videoGravity="AVLayerVideoGravityResizeAspect" id="8Fh-UA-FFk" customClass="CorePlayer" customModule="Miksing" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aDM-Uy-e6h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="799" y="-112"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="PYE-kN-EpH">
@@ -372,12 +380,12 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="okE-d9-vFP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="820" y="110"/>
+            <point key="canvasLocation" x="801" y="229"/>
         </scene>
     </scenes>
     <resources>
+        <image name="SF_music_note" width="32" height="32"/>
+        <image name="SF_play_rectangle" width="32" height="32"/>
         <image name="TV" width="159" height="130"/>
-        <image name="music.note.list" catalog="system" width="64" height="56"/>
-        <image name="play.rectangle" catalog="system" width="64" height="46"/>
     </resources>
 </document>

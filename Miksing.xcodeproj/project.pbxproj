@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02054B812429B7E0003F886B /* CorePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02054B802429B7E0003F886B /* CorePlayer.swift */; };
 		020DDE5024286AFC000DBB42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020DDE4F24286AFC000DBB42 /* AppDelegate.swift */; };
 		020DDE5524286AFC000DBB42 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 020DDE5324286AFC000DBB42 /* DataModel.xcdatamodeld */; };
 		020DDE5924286AFE000DBB42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 020DDE5824286AFE000DBB42 /* Assets.xcassets */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		02054B802429B7E0003F886B /* CorePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorePlayer.swift; sourceTree = "<group>"; };
 		020DDE4C24286AFC000DBB42 /* Miksing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Miksing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		020DDE4F24286AFC000DBB42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		020DDE5424286AFC000DBB42 /* Miksing.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Miksing.xcdatamodel; sourceTree = "<group>"; };
@@ -101,6 +103,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		02054B7F2429B7AB003F886B /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				02054B802429B7E0003F886B /* CorePlayer.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
 		020DDE4324286AFC000DBB42 = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +136,7 @@
 		020DDE4E24286AFC000DBB42 /* Miksing */ = {
 			isa = PBXGroup;
 			children = (
+				02054B7F2429B7AB003F886B /* Core */,
 				0251780A242939E50080EC2D /* Data */,
 				025177C8242919CB0080EC2D /* Home */,
 				020DDE4F24286AFC000DBB42 /* AppDelegate.swift */,
@@ -465,6 +476,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02054B812429B7E0003F886B /* CorePlayer.swift in Sources */,
 				020DDE5024286AFC000DBB42 /* AppDelegate.swift in Sources */,
 				02517818242956650080EC2D /* SongPlaylist.swift in Sources */,
 				0251781E242979430080EC2D /* SongCell.swift in Sources */,

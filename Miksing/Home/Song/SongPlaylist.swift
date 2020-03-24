@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class SongTable : UITableViewController, NSFetchedResultsControllerDelegate {
+class SongPlaylist : UITableViewController, NSFetchedResultsControllerDelegate {
     
     var context: NSManagedObjectContext? = nil
     var filters:[Int?]? = []
