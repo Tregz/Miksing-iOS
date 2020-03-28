@@ -10,7 +10,7 @@ import UIKit
 class SongCell : UITableViewCell {
     
     @IBOutlet weak var name: UILabel! // Title
-    @IBOutlet weak var mark: UILabel! // Subtitle
+    @IBOutlet weak var artist: UILabel! // Subtitle
     @IBOutlet weak var icon: UIImageView! // Thumbnail
                 
     var expanded: Bool = false

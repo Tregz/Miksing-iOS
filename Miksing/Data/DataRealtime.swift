@@ -51,7 +51,7 @@ class DataRealtime {
             }
             
             let dictionary = snapshot.value as! [String: AnyObject]
-            if (dictionary["mark"] != nil) { song?.mark = dictionary["mark"] as? String }
+            if (dictionary["mark"] != nil) { song?.artist = dictionary["mark"] as? String }
             if (dictionary["name"] != nil) { song?.name = dictionary["name"] as? String }
             (UIApplication.shared.delegate as! AppDelegate).saveContext()
             finished() })

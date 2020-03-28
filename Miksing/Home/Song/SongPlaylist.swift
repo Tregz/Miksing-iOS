@@ -91,7 +91,7 @@ class SongPlaylist : UITableViewController, NSFetchedResultsControllerDelegate {
     
     func fetchController() {
         let descriptors:[String]! = ["name"]
-        let sortSection:[String]! = ["name"]
+        let sortSection:[String]! = ["alpha", "fresh"]
         let request: NSFetchRequest<Song> = Song.fetchRequest()
         request.fetchBatchSize = 20 // Set the batch size to a suitable number.
         let sortDescriptor = NSSortDescriptor(key: descriptors![sorting!], ascending: true)
@@ -107,8 +107,8 @@ class SongPlaylist : UITableViewController, NSFetchedResultsControllerDelegate {
         if (searching != "") {
             let format = "(name contains [cd] %@) || (mark contains [cd] %@)"
             predicates.append(NSPredicate(format:format, searching, searching)) }
-        if filters!.count > 0 { var format = "kind == " + String(filters![0]!)
-            for i in 1..<filters!.count { format += " || kind == " + String(filters![i]!) }
+        if filters!.count > 0 { var format = "genre == " + String(filters![0]!)
+            for i in 1..<filters!.count { format += " || genre == " + String(filters![i]!) }
             predicates.append(NSPredicate(format:"(" + format + ")")) }
         return NSCompoundPredicate(andPredicateWithSubpredicates:predicates)
     }
@@ -165,7 +165,7 @@ class SongPlaylist : UITableViewController, NSFetchedResultsControllerDelegate {
                 
     private func configureCell(_ cell: SongCell, withEvent song: Song, indexPath: IndexPath) {
         cell.name.text = song.name ?? ""
-        cell.mark.text = song.mark ?? ""
+        cell.artist.text = song.artist ?? ""
         if (self.cache.object(forKey: song.id as AnyObject) != nil) {
             cell.icon.image = self.cache.object(forKey: song.id as AnyObject) as? UIImage }
         else if (song.id != nil) {

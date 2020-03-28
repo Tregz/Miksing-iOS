@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19D76" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Song" representedClassName="Song" syncable="YES" codeGenerationType="class">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19E266" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Song" representedClassName="Song" syncable="YES">
+        <attribute name="artist" optional="YES" attributeType="String"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="deletedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="featuring" optional="YES" attributeType="String"/>
+        <attribute name="genre" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
         <attribute name="id" optional="YES" attributeType="String"/>
-        <attribute name="kind" optional="YES" attributeType="String"/>
-        <attribute name="mark" optional="YES" attributeType="String"/>
+        <attribute name="mixedBy" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="releasedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="version" optional="YES" attributeType="String"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="id"/>
@@ -12,6 +19,6 @@
         </uniquenessConstraints>
     </entity>
     <elements>
-        <element name="Song" positionX="-63" positionY="-18" width="128" height="103"/>
+        <element name="Song" positionX="-63" positionY="-18" width="128" height="208"/>
     </elements>
 </model>

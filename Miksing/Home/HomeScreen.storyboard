@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZZj-3j-V5V">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZZj-3j-V5V">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,23 +11,23 @@
             <objects>
                 <viewController id="Fyh-RF-eiM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WXJ-aI-WFJ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="aQp-f5-gVU">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="44" width="600" height="556"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mHe-Nq-wd4">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="233"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="337.5"/>
                                         <subviews>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tpU-tg-209">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="233"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="337.5"/>
                                                 <connections>
                                                     <segue destination="8Fh-UA-FFk" kind="embed" id="uvf-Qh-hcm"/>
                                                 </connections>
                                             </containerView>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Og-B2-IGo">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="233"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="337.5"/>
                                                 <connections>
                                                     <segue destination="lLP-Jo-bzE" kind="embed" id="aaC-ux-ZaS"/>
                                                 </connections>
@@ -49,7 +47,7 @@
                                         </constraints>
                                     </view>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XLe-fd-gwV">
-                                        <rect key="frame" x="0.0" y="233" width="414" height="541"/>
+                                        <rect key="frame" x="0.0" y="337.5" width="600" height="218.5"/>
                                         <connections>
                                             <segue destination="AJt-wU-QlE" kind="embed" id="yO2-Lt-4y3"/>
                                         </connections>
@@ -80,15 +78,15 @@
             <objects>
                 <tableViewController clearsSelectionOnViewWillAppear="NO" id="WZl-Yj-ebc" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Xpw-DX-GyQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Wx2-68-kwp">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <rect key="frame" x="0.0" y="28" width="600" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Wx2-68-kwp" id="iFZ-0g-y6A">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -220,8 +218,8 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
+                                    <outlet property="artist" destination="WuT-VD-Eur" id="7j5-gc-hbx"/>
                                     <outlet property="icon" destination="aOs-RK-IvJ" id="6wS-Kh-h23"/>
-                                    <outlet property="mark" destination="WuT-VD-Eur" id="7j5-gc-hbx"/>
                                     <outlet property="name" destination="9vf-WN-M8o" id="iWo-FH-ckG"/>
                                 </connections>
                             </tableViewCell>
@@ -324,8 +322,8 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
+                                    <outlet property="artist" destination="14N-iV-58e" id="an0-qP-NqU"/>
                                     <outlet property="icon" destination="06H-y4-VFd" id="HXK-3g-VL8"/>
-                                    <outlet property="mark" destination="14N-iV-58e" id="an0-qP-NqU"/>
                                     <outlet property="name" destination="xLG-aO-IeS" id="dgW-gO-y73"/>
                                 </connections>
                             </tableViewCell>
@@ -422,9 +420,10 @@
             <objects>
                 <viewController id="feS-fS-Nar" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="azJ-iZ-fMZ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="615-Ua-ZX2"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="la2-H7-QJK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
