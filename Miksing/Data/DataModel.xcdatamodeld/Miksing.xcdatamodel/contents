@@ -18,9 +18,12 @@
             </uniquenessConstraint>
         </uniquenessConstraints>
     </entity>
-    <entity name="Tube" representedClassName="Tube" syncable="YES" codeGenerationType="class"/>
+    <entity name="Tube" representedClassName="Tube" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+    </entity>
     <elements>
         <element name="Song" positionX="-63" positionY="-18" width="128" height="208"/>
-        <element name="Tube" positionX="-63" positionY="63" width="128" height="43"/>
+        <element name="Tube" positionX="-63" positionY="63" width="128" height="73"/>
     </elements>
 </model>

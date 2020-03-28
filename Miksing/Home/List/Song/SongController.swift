@@ -11,7 +11,6 @@ import CoreData
 
 class SongController : ListController<Song> {
 
-    let cache:NSCache<AnyObject, AnyObject>! = NSCache()
     let session = URLSession.shared
     
     func getCurrentTabPosition() -> Int {
@@ -35,14 +34,6 @@ class SongController : ListController<Song> {
     }
     
     // MARK: - Table view data source
-    
-    override func tableView(_ tableView: UITableView,
-        didSelectRowAt indexPath: IndexPath) {
-        if (tableView.cellForRow(at:indexPath) != nil) {
-            let songId: [String: String] = [DataNotation.ID: fetchedResultsController.object(at: indexPath).id ?? ""]
-            NotificationCenter.default.post(name: Notification.Name("YouTubePlay"), object: nil, userInfo: songId)
-        }
-    }
                 
     override func configureCell(_ cell: ListHolder, withEvent song: Song, indexPath: IndexPath) {
         cell.title.text = song.name ?? ""
@@ -53,11 +44,24 @@ class SongController : ListController<Song> {
             let url:URL! = URL(string: "https://img.youtube.com/vi/" + song.id! + "/0.jpg")
             var task: URLSessionDownloadTask!
             task = session.downloadTask(with: url, completionHandler: { (location, response, error) -> Void in
-                if let data = try? Data(contentsOf: url) { DispatchQueue.main.async(execute: { () -> Void in
+                if let data = try? Data(contentsOf: url) {
+                    DispatchQueue.main.async(execute: { () -> Void in
                         let img:UIImage! = UIImage(data: data)
                         cell.thumbnail.image = img
-                        self.cache.setObject(img, forKey: song.id as AnyObject) }) } })
-            task.resume() }
+                        self.cache.setObject(img, forKey: song.id as AnyObject)
+                    })
+                }
+            })
+            task.resume()
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView,
+        didSelectRowAt indexPath: IndexPath) {
+        if (tableView.cellForRow(at:indexPath) != nil) {
+            let songId: [String: String] = [DataNotation.ID: fetchedResultsController.object(at: indexPath).id ?? ""]
+            NotificationCenter.default.post(name: Notification.Name("YouTubePlay"), object: nil, userInfo: songId)
+        }
     }
                 
 }

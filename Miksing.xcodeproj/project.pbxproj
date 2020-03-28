@@ -24,7 +24,10 @@
 		0243A970242FBBCE00E028F4 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0243A96F242FBBCE00E028F4 /* HomeScreen.swift */; };
 		0243A975242FCEC100E028F4 /* TubeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0243A974242FCEC100E028F4 /* TubeController.swift */; };
 		0243A977242FCF9800E028F4 /* ListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0243A976242FCF9800E028F4 /* ListController.swift */; };
-		025177C7242919B00080EC2D /* HomeScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 025177C6242919B00080EC2D /* HomeScreen.storyboard */; };
+		0243A97C242FEF4900E028F4 /* Tube+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0243A97A242FEF4900E028F4 /* Tube+CoreDataClass.swift */; };
+		0243A97D242FEF4900E028F4 /* Tube+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0243A97B242FEF4900E028F4 /* Tube+CoreDataProperties.swift */; };
+		0243A981242FF62100E028F4 /* TubeLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0243A983242FF62100E028F4 /* TubeLocalizable.strings */; };
+		0243A98D242FFBD900E028F4 /* HomeScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0243A98F242FFBD900E028F4 /* HomeScreen.storyboard */; };
 		0251780C24293A0E0080EC2D /* DataRealtime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0251780B24293A0E0080EC2D /* DataRealtime.swift */; };
 		02517818242956650080EC2D /* SongController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02517817242956650080EC2D /* SongController.swift */; };
 		0251781A24296F980080EC2D /* SongSelected.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0251781924296F980080EC2D /* SongSelected.swift */; };
@@ -75,7 +78,12 @@
 		0243A96F242FBBCE00E028F4 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		0243A974242FCEC100E028F4 /* TubeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TubeController.swift; sourceTree = "<group>"; };
 		0243A976242FCF9800E028F4 /* ListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListController.swift; sourceTree = "<group>"; };
-		025177C6242919B00080EC2D /* HomeScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeScreen.storyboard; sourceTree = "<group>"; };
+		0243A97A242FEF4900E028F4 /* Tube+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tube+CoreDataClass.swift"; sourceTree = "<group>"; };
+		0243A97B242FEF4900E028F4 /* Tube+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tube+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0243A982242FF62100E028F4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TubeLocalizable.strings; sourceTree = "<group>"; };
+		0243A984242FF64600E028F4 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/TubeLocalizable.strings; sourceTree = "<group>"; };
+		0243A98E242FFBD900E028F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/HomeScreen.storyboard; sourceTree = "<group>"; };
+		0243A991242FFBDC00E028F4 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/HomeScreen.strings; sourceTree = "<group>"; };
 		0251780B24293A0E0080EC2D /* DataRealtime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRealtime.swift; sourceTree = "<group>"; };
 		02517817242956650080EC2D /* SongController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongController.swift; sourceTree = "<group>"; };
 		0251781924296F980080EC2D /* SongSelected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongSelected.swift; sourceTree = "<group>"; };
@@ -230,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				0243A974242FCEC100E028F4 /* TubeController.swift */,
+				0243A983242FF62100E028F4 /* TubeLocalizable.strings */,
 			);
 			path = Tube;
 			sourceTree = "<group>";
@@ -245,12 +254,21 @@
 			path = List;
 			sourceTree = "<group>";
 		};
+		0243A979242FEF1A00E028F4 /* Tube */ = {
+			isa = PBXGroup;
+			children = (
+				0243A97A242FEF4900E028F4 /* Tube+CoreDataClass.swift */,
+				0243A97B242FEF4900E028F4 /* Tube+CoreDataProperties.swift */,
+			);
+			path = Tube;
+			sourceTree = "<group>";
+		};
 		025177C8242919CB0080EC2D /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				0243A978242FD21800E028F4 /* List */,
-				025177C6242919B00080EC2D /* HomeScreen.storyboard */,
 				0243A96F242FBBCE00E028F4 /* HomeScreen.swift */,
+				0243A98F242FFBD900E028F4 /* HomeScreen.storyboard */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -258,6 +276,7 @@
 		0251780A242939E50080EC2D /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				0243A979242FEF1A00E028F4 /* Tube */,
 				0243A960242F663000E028F4 /* Song */,
 				020DDE5324286AFC000DBB42 /* DataModel.xcdatamodeld */,
 				0251780B24293A0E0080EC2D /* DataRealtime.swift */,
@@ -389,6 +408,7 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
 			);
 			mainGroup = 020DDE4324286AFC000DBB42;
 			productRefGroup = 020DDE4D24286AFC000DBB42 /* Products */;
@@ -408,9 +428,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				020DDE5F24286AFE000DBB42 /* BaseScreen.storyboard in Resources */,
-				025177C7242919B00080EC2D /* HomeScreen.storyboard in Resources */,
+				0243A981242FF62100E028F4 /* TubeLocalizable.strings in Resources */,
 				020DDE852428EE84000DBB42 /* GoogleService-Info.plist in Resources */,
 				020DDE5C24286AFE000DBB42 /* Preview Assets.xcassets in Resources */,
+				0243A98D242FFBD900E028F4 /* HomeScreen.storyboard in Resources */,
 				02054B86242A3514003F886B /* youtube.html in Resources */,
 				020DDE5924286AFE000DBB42 /* Assets.xcassets in Resources */,
 			);
@@ -543,6 +564,7 @@
 				02054B812429B7E0003F886B /* PlayVideo.swift in Sources */,
 				020DDE5024286AFC000DBB42 /* AppDelegate.swift in Sources */,
 				02517818242956650080EC2D /* SongController.swift in Sources */,
+				0243A97D242FEF4900E028F4 /* Tube+CoreDataProperties.swift in Sources */,
 				0251781E242979430080EC2D /* ListHolder.swift in Sources */,
 				0243A96C242F6DD200E028F4 /* Song+CoreDataProperties.swift in Sources */,
 				02054B842429CFEF003F886B /* PlayWeb.swift in Sources */,
@@ -552,6 +574,7 @@
 				0251781A24296F980080EC2D /* SongSelected.swift in Sources */,
 				0243A96E242F81E200E028F4 /* DataNotation.swift in Sources */,
 				0243A977242FCF9800E028F4 /* ListController.swift in Sources */,
+				0243A97C242FEF4900E028F4 /* Tube+CoreDataClass.swift in Sources */,
 				0243A975242FCEC100E028F4 /* TubeController.swift in Sources */,
 				0243A96B242F6DD200E028F4 /* Song+CoreDataClass.swift in Sources */,
 			);
@@ -597,6 +620,24 @@
 			name = BaseScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		0243A983242FF62100E028F4 /* TubeLocalizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0243A982242FF62100E028F4 /* en */,
+				0243A984242FF64600E028F4 /* fr */,
+			);
+			name = TubeLocalizable.strings;
+			sourceTree = "<group>";
+		};
+		0243A98F242FFBD900E028F4 /* HomeScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0243A98E242FFBD900E028F4 /* Base */,
+				0243A991242FFBDC00E028F4 /* fr */,
+			);
+			name = HomeScreen.storyboard;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -604,6 +645,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -664,6 +706,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

@@ -11,4 +11,18 @@ import CoreData
 
 class TubeController : ListController<Tube> {
     
+    override var descriptors:[String]! { return [DataNotation.NS] }
+    override var sortSection:[String]! { return ["alpha"] }
+    override var isAscending:[Bool]! { return [true] }
+    
+    override func configureCell(_ cell: ListHolder, withEvent tube: Tube, indexPath: IndexPath) {
+        cell.title.text = NSLocalizedString(tube.name ??  "", tableName: "TubeLocalizable", comment: "")
+        cell.subtitle.text = "" //tube... ?? ""
+        if (self.cache.object(forKey: tube.id as AnyObject) != nil) {
+            cell.thumbnail.image = self.cache.object(forKey: tube.id as AnyObject) as? UIImage
+        } else if (tube.id != nil) {
+            // TODO
+        }
+    }
+    
 }

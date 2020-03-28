@@ -16,6 +16,7 @@ class DataRealtime {
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var ref: DatabaseReference! = Database.database().reference()
     var songIds: Array<String> = Array()
+    var tubeIds: Array<String> = Array()
     
     private init() {}
     
@@ -23,9 +24,11 @@ class DataRealtime {
         //deleteAllData(entity: "Song")
         DispatchQueue.global(qos: .background).async {
             self.retrieveUser(userId: userId) {
-                self.retrieveTube() {
-                    for songId in self.songIds {
-                        self.retrieveSong(songId: songId) {}
+                for tubeId in self.tubeIds {
+                    self.retrieveTube(tubeId: tubeId) {
+                        for songId in self.songIds {
+                            self.retrieveSong(songId: songId) {}
+                        }
                     }
                 }
             }
@@ -62,21 +65,47 @@ class DataRealtime {
             if (dictionary[DataNotation.NS] != nil) { song?.name = dictionary[DataNotation.NS] as? String }
             if (dictionary[DataNotation.VI] != nil) { song?.version = (dictionary[DataNotation.VI] as? Int16)! }
             (UIApplication.shared.delegate as! AppDelegate).saveContext()
-            finished() })
+            finished()
+        })
     }
     
     private func toDate(long: Double) -> Date {
         return Date(timeIntervalSince1970: (long / 1000.0))
     }
     
-    func retrieveTube(finished: @escaping () -> ()) {
-        finished()
+    func retrieveTube(tubeId: String, finished: @escaping () -> ()) {
+        ref.database.reference(withPath: "tube/" + tubeId + "/data/").observeSingleEvent(of: .value, with: { snapshot in
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Tube")
+            request.fetchLimit = 1
+            request.predicate = NSPredicate(format: DataNotation.ID + " = %@", tubeId)
+            var tube: Tube? = nil
+            do {
+                let result = try self.context.fetch(request)
+                if (result.count >= 1) {
+                    tube = result[0] as? Tube
+                } else {
+                    tube = Tube(context: self.context)
+                    tube?.id = tubeId
+                }
+            } catch {
+                // do nothing
+            }
+            
+            let dictionary = snapshot.value as! [String: AnyObject]
+            if (dictionary[DataNotation.NS] != nil) { tube?.name = dictionary[DataNotation.NS] as? String }
+            (UIApplication.shared.delegate as! AppDelegate).saveContext()
+            finished()
+        })
     }
     
     func retrieveUser(userId: String, finished: @escaping () -> ()) {
-        ref.database.reference(withPath: "user/" + userId + "/song/").observeSingleEvent(of: .value, with: { snapshot in
-            for child in snapshot.children { self.songIds.append((child as! DataSnapshot).key) }
-            finished() })
+        ref.database.reference(withPath: "user/" + userId + "/tube/").observeSingleEvent(of: .value, with: { snapshot in
+            for child in snapshot.children { self.tubeIds.append((child as! DataSnapshot).key) }
+            self.ref.database.reference(withPath: "user/" + userId + "/song/").observeSingleEvent(of: .value, with: { snapshot in
+                for child in snapshot.children { self.songIds.append((child as! DataSnapshot).key) }
+                finished()
+            })
+        })
     }
     
     func deleteAllData(entity: String) {

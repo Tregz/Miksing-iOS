@@ -14,11 +14,15 @@ import CoreData
 public class Song: NSManagedObject {
     
     // Derived values for table sections
-    @objc var alpha: String? { if (name ?? "").isEmpty { return "" }
-        return String(name!.prefix(1)).uppercased() } // Alphabetic
+    @objc var alpha: String? {
+        if (name ?? "").isEmpty { return "" }
+        return String(name!.prefix(1)).uppercased() // Alphabetic
+    }
     
-    @objc var fresh: String? { let dateFormatter = DateFormatter()
+    @objc var fresh: String? {
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy" //-MM-dd HH:mm:ss
-        return dateFormatter.string(from: releasedAt!) } // Released date
+        return dateFormatter.string(from: releasedAt!) // Released date
+    }
 
 }
