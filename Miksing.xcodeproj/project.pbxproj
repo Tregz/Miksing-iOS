@@ -20,6 +20,8 @@
 		020DDE852428EE84000DBB42 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 020DDE842428EE84000DBB42 /* GoogleService-Info.plist */; };
 		0243A96B242F6DD200E028F4 /* Song+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0243A969242F6DD200E028F4 /* Song+CoreDataClass.swift */; };
 		0243A96C242F6DD200E028F4 /* Song+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0243A96A242F6DD200E028F4 /* Song+CoreDataProperties.swift */; };
+		0243A96E242F81E200E028F4 /* DataNotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0243A96D242F81E200E028F4 /* DataNotation.swift */; };
+		0243A970242FBBCE00E028F4 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0243A96F242FBBCE00E028F4 /* HomeScreen.swift */; };
 		025177C7242919B00080EC2D /* HomeScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 025177C6242919B00080EC2D /* HomeScreen.storyboard */; };
 		0251780C24293A0E0080EC2D /* DataRealtime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0251780B24293A0E0080EC2D /* DataRealtime.swift */; };
 		02517818242956650080EC2D /* SongPlaylist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02517817242956650080EC2D /* SongPlaylist.swift */; };
@@ -67,6 +69,8 @@
 		020DDE842428EE84000DBB42 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0243A969242F6DD200E028F4 /* Song+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Song+CoreDataClass.swift"; sourceTree = "<group>"; };
 		0243A96A242F6DD200E028F4 /* Song+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Song+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0243A96D242F81E200E028F4 /* DataNotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataNotation.swift; sourceTree = "<group>"; };
+		0243A96F242FBBCE00E028F4 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		025177C6242919B00080EC2D /* HomeScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeScreen.storyboard; sourceTree = "<group>"; };
 		0251780B24293A0E0080EC2D /* DataRealtime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRealtime.swift; sourceTree = "<group>"; };
 		02517817242956650080EC2D /* SongPlaylist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongPlaylist.swift; sourceTree = "<group>"; };
@@ -223,6 +227,7 @@
 			children = (
 				02517816242956020080EC2D /* Song */,
 				025177C6242919B00080EC2D /* HomeScreen.storyboard */,
+				0243A96F242FBBCE00E028F4 /* HomeScreen.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -233,6 +238,7 @@
 				0243A960242F663000E028F4 /* Song */,
 				020DDE5324286AFC000DBB42 /* DataModel.xcdatamodeld */,
 				0251780B24293A0E0080EC2D /* DataRealtime.swift */,
+				0243A96D242F81E200E028F4 /* DataNotation.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -520,7 +526,9 @@
 				02054B842429CFEF003F886B /* PlayWeb.swift in Sources */,
 				0251780C24293A0E0080EC2D /* DataRealtime.swift in Sources */,
 				020DDE5524286AFC000DBB42 /* DataModel.xcdatamodeld in Sources */,
+				0243A970242FBBCE00E028F4 /* HomeScreen.swift in Sources */,
 				0251781A24296F980080EC2D /* SongSelected.swift in Sources */,
+				0243A96E242F81E200E028F4 /* DataNotation.swift in Sources */,
 				0243A96B242F6DD200E028F4 /* Song+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

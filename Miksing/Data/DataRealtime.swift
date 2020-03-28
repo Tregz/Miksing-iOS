@@ -36,7 +36,7 @@ class DataRealtime {
         ref.database.reference(withPath: "song/" + songId + "/").observeSingleEvent(of: .value, with: { snapshot in
             let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Song")
             request.fetchLimit = 1
-            request.predicate = NSPredicate(format: "id = %@", songId)
+            request.predicate = NSPredicate(format: DataNotation.ID + " = %@", songId)
             var song: Song? = nil
             do {
                 let result = try self.context.fetch(request)
@@ -51,10 +51,22 @@ class DataRealtime {
             }
             
             let dictionary = snapshot.value as! [String: AnyObject]
-            if (dictionary["mark"] != nil) { song?.artist = dictionary["mark"] as? String }
-            if (dictionary["name"] != nil) { song?.name = dictionary["name"] as? String }
+            if (dictionary[DataNotation.RD] != nil) { song?.releasedAt = self.toDate(long: dictionary[DataNotation.RD] as! Double) }
+            if (dictionary[DataNotation.CD] != nil) { song?.createdAt = self.toDate(long: dictionary[DataNotation.CD] as! Double) }
+            if (dictionary[DataNotation.DD] != nil) { song?.deletedAt = self.toDate(long: dictionary[DataNotation.DD] as! Double) }
+            if (dictionary[DataNotation.UD] != nil) { song?.updatedAt = self.toDate(long: dictionary[DataNotation.UD] as! Double) }
+            if (dictionary[DataNotation.FS] != nil) { song?.featuring = dictionary[DataNotation.FS] as? String }
+            if (dictionary[DataNotation.GS] != nil) { song?.genre = dictionary[DataNotation.GS] as? String }
+            if (dictionary[DataNotation.MS] != nil) { song?.mixedBy = dictionary[DataNotation.MS] as? String }
+            if (dictionary[DataNotation.AS] != nil) { song?.artist = dictionary[DataNotation.AS] as? String }
+            if (dictionary[DataNotation.NS] != nil) { song?.name = dictionary[DataNotation.NS] as? String }
+            if (dictionary[DataNotation.VI] != nil) { song?.version = (dictionary[DataNotation.VI] as? Int16)! }
             (UIApplication.shared.delegate as! AppDelegate).saveContext()
             finished() })
+    }
+    
+    private func toDate(long: Double) -> Date {
+        return Date(timeIntervalSince1970: (long / 1000.0))
     }
     
     func retrieveTube(finished: @escaping () -> ()) {

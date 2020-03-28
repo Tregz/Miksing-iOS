@@ -18,15 +18,15 @@ extension Song {
     }
 
     @NSManaged public var id: String?
-    @NSManaged public var version: String?
     @NSManaged public var artist: String?
-    @NSManaged public var name: String?
-    @NSManaged public var releasedAt: Date?
+    @NSManaged public var createdAt: Date?
     @NSManaged public var deletedAt: Date?
     @NSManaged public var featuring: String?
-    @NSManaged public var updatedAt: Date?
-    @NSManaged public var createdAt: Date?
+    @NSManaged public var genre: String?
     @NSManaged public var mixedBy: String?
-    @NSManaged public var genre: Int16
+    @NSManaged public var name: String?
+    @NSManaged public var releasedAt: Date?
+    @NSManaged public var updatedAt: Date?
+    @NSManaged public var version: Int16
 
 }

@@ -36,6 +36,11 @@ class SongPlaylist : UITableViewController, NSFetchedResultsControllerDelegate {
         context = appDelegate.persistentContainer.viewContext
         clearsSelectionOnViewWillAppear = false // preserve selection between tabs
         
+        let name = Notification.Name(HomeScreen.COMPARATOR)
+        NotificationCenter.default.addObserver(forName: name, object: nil, queue: nil) { notification in
+            self.sorting = notification.userInfo?["Comparator"] as? Int ?? 0
+            self.fetchController()
+        }
     }
     
     // MARK: - Fetched results controller
@@ -90,11 +95,12 @@ class SongPlaylist : UITableViewController, NSFetchedResultsControllerDelegate {
     }
     
     func fetchController() {
-        let descriptors:[String]! = ["name"]
+        let descriptors:[String]! = [DataNotation.NS, DataNotation.RD]
         let sortSection:[String]! = ["alpha", "fresh"]
+        let isAscending:[Bool]! = [true, false]
         let request: NSFetchRequest<Song> = Song.fetchRequest()
         request.fetchBatchSize = 20 // Set the batch size to a suitable number.
-        let sortDescriptor = NSSortDescriptor(key: descriptors![sorting!], ascending: true)
+        let sortDescriptor = NSSortDescriptor(key: descriptors![sorting!], ascending: isAscending![sorting!])
         request.sortDescriptors = [sortDescriptor]
         let aFetchedResultsController = NSFetchedResultsController(fetchRequest:request, managedObjectContext:context!, sectionNameKeyPath:sortSection![sorting!], cacheName: getCacheName())
         aFetchedResultsController.delegate = self
@@ -105,10 +111,10 @@ class SongPlaylist : UITableViewController, NSFetchedResultsControllerDelegate {
     func fetchPredicates() -> NSCompoundPredicate {
         var predicates: [NSPredicate] = []
         if (searching != "") {
-            let format = "(name contains [cd] %@) || (mark contains [cd] %@)"
+            let format = "(" + DataNotation.NS + " contains [cd] %@) || (" + DataNotation.AS + " contains [cd] %@)"
             predicates.append(NSPredicate(format:format, searching, searching)) }
-        if filters!.count > 0 { var format = "genre == " + String(filters![0]!)
-            for i in 1..<filters!.count { format += " || genre == " + String(filters![i]!) }
+        if filters!.count > 0 { var format = DataNotation.GS + "  == " + String(filters![0]!)
+            for i in 1..<filters!.count { format += " || " + DataNotation.GS + " == " + String(filters![i]!) }
             predicates.append(NSPredicate(format:"(" + format + ")")) }
         return NSCompoundPredicate(andPredicateWithSubpredicates:predicates)
     }
@@ -140,7 +146,7 @@ class SongPlaylist : UITableViewController, NSFetchedResultsControllerDelegate {
     override func tableView(_ tableView: UITableView,
         didSelectRowAt indexPath: IndexPath) {
         if (tableView.cellForRow(at:indexPath) != nil) {
-            let songId: [String: String] = ["id": fetchedResultsController.object(at: indexPath).id ?? ""]
+            let songId: [String: String] = [DataNotation.ID: fetchedResultsController.object(at: indexPath).id ?? ""]
             NotificationCenter.default.post(name: Notification.Name("YouTubePlay"), object: nil, userInfo: songId)
         }
     }

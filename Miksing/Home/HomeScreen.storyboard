@@ -1,33 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZZj-3j-V5V">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Home Screen-->
         <scene sceneID="Kmm-2g-nQ2">
             <objects>
-                <viewController id="Fyh-RF-eiM" sceneMemberID="viewController">
+                <viewController id="Fyh-RF-eiM" customClass="HomeScreen" customModule="Miksing" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WXJ-aI-WFJ">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="aQp-f5-gVU">
-                                <rect key="frame" x="0.0" y="44" width="600" height="556"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mHe-Nq-wd4">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="337.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="233"/>
                                         <subviews>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tpU-tg-209">
-                                                <rect key="frame" x="0.0" y="0.0" width="600" height="337.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="233"/>
                                                 <connections>
                                                     <segue destination="8Fh-UA-FFk" kind="embed" id="uvf-Qh-hcm"/>
                                                 </connections>
                                             </containerView>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Og-B2-IGo">
-                                                <rect key="frame" x="0.0" y="0.0" width="600" height="337.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="233"/>
                                                 <connections>
                                                     <segue destination="lLP-Jo-bzE" kind="embed" id="aaC-ux-ZaS"/>
                                                 </connections>
@@ -46,8 +48,22 @@
                                             <constraint firstItem="tpU-tg-209" firstAttribute="leading" secondItem="mHe-Nq-wd4" secondAttribute="leading" id="zb9-Ci-293"/>
                                         </constraints>
                                     </view>
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eTY-Xg-DJj">
+                                        <rect key="frame" x="0.0" y="233" width="414" height="44"/>
+                                        <items>
+                                            <barButtonItem title="Item" id="6Sk-7B-cKZ"/>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="HwX-0i-TcV"/>
+                                            <barButtonItem title="A-Z" image="SF_textformat_abc" id="cyz-if-hG4" userLabel="A_Z">
+                                                <connections>
+                                                    <action selector="comparator:" destination="Fyh-RF-eiM" id="eze-ab-HmN"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="HkR-5R-0ch"/>
+                                            <barButtonItem title="Item" id="ljq-P2-1O7"/>
+                                        </items>
+                                    </toolbar>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XLe-fd-gwV">
-                                        <rect key="frame" x="0.0" y="337.5" width="600" height="218.5"/>
+                                        <rect key="frame" x="0.0" y="277" width="414" height="497"/>
                                         <connections>
                                             <segue destination="AJt-wU-QlE" kind="embed" id="yO2-Lt-4y3"/>
                                         </connections>
@@ -78,15 +94,15 @@
             <objects>
                 <tableViewController clearsSelectionOnViewWillAppear="NO" id="WZl-Yj-ebc" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Xpw-DX-GyQ">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Wx2-68-kwp">
-                                <rect key="frame" x="0.0" y="28" width="600" height="43.5"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Wx2-68-kwp" id="iFZ-0g-y6A">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -136,7 +152,7 @@
             <objects>
                 <tableViewController id="6cC-6N-1W4" customClass="SongPlaylist" customModule="Miksing" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="pi3-Lz-uzp">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="541"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="497"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
@@ -230,6 +246,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Playlist" id="DQe-ee-7FY"/>
+                    <nil key="simulatedTopBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aZw-EH-Umv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -240,7 +257,7 @@
             <objects>
                 <tableViewController id="eC4-nf-J1F" customClass="SongSelected" customModule="Miksing" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="XoU-Hh-dor">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="541"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="497"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
@@ -334,6 +351,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Prepare" id="OPy-AI-N9Z"/>
+                    <nil key="simulatedTopBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ZM-y0-Vrj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -342,10 +360,10 @@
         <!--Selected Navigation-->
         <scene sceneID="5Xs-d8-oSd">
             <objects>
-                <navigationController id="3M7-Eb-LH2" userLabel="Selected Navigation" sceneMemberID="viewController">
+                <navigationController navigationBarHidden="YES" id="3M7-Eb-LH2" userLabel="Selected Navigation" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Prepare" image="SF_play_rectangle" id="xoU-Wc-9iG"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bRJ-Mn-Aee">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -374,10 +392,10 @@
         <!--Playlist Navigation-->
         <scene sceneID="v2x-aq-1DQ">
             <objects>
-                <navigationController id="Lwv-zX-vnx" userLabel="Playlist Navigation" sceneMemberID="viewController">
+                <navigationController navigationBarHidden="YES" id="Lwv-zX-vnx" userLabel="Playlist Navigation" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Playlist" image="SF_music_note" id="BJQ-iW-RQP"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SOZ-RC-3ld">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -415,25 +433,11 @@
             </objects>
             <point key="canvasLocation" x="801" y="229"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="AL2-XI-nnr">
-            <objects>
-                <viewController id="feS-fS-Nar" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="azJ-iZ-fMZ">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="615-Ua-ZX2"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="la2-H7-QJK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-120" y="498"/>
-        </scene>
     </scenes>
     <resources>
         <image name="SF_music_note" width="32" height="32"/>
         <image name="SF_play_rectangle" width="32" height="32"/>
+        <image name="SF_textformat_abc" width="32" height="32"/>
         <image name="TV" width="159" height="130"/>
     </resources>
 </document>
