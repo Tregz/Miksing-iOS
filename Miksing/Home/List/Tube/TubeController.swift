@@ -30,4 +30,19 @@ class TubeController : ListController<Tube> {
         }
     }
     
+    override func tableView(_ tableView: UITableView,
+        didSelectRowAt indexPath: IndexPath) {
+        if (tableView.cellForRow(at:indexPath) != nil) {
+            let songs: NSSet = fetchedResultsController.object(at: indexPath).songs ?? []
+            //print("Tube clicked: Songs size " + String(songs.count))
+            var songIds: [String] = []
+            for song in songs {
+                songIds.append((song as! Song).id!)
+            }
+            let data: [String: [String]] = ["Songs": songIds]
+            //print("Tube clicked")
+            NotificationCenter.default.post(name: Notification.Name("Songs"), object: nil, userInfo: data)
+        }
+    }
+    
 }

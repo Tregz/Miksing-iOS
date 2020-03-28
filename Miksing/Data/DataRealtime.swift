@@ -93,8 +93,7 @@ class DataRealtime {
             
             let dictionary = snapshot.value as! [String: AnyObject]
             if (dictionary[DataNotation.NS] != nil) { tube?.name = dictionary[DataNotation.NS] as? String }
-            (UIApplication.shared.delegate as! AppDelegate).saveContext()
-            self.ref.database.reference(withPath: "tube/" + tubeId + "/song/").observeSingleEvent(of: .value, with: { snapshot in
+            self.ref.database.reference(withPath: "tube/" + (tube?.id!)! + "/song/").observeSingleEvent(of: .value, with: { snapshot in
                 for child in snapshot.children {
                     let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Song")
                     request.fetchLimit = 1
@@ -103,13 +102,13 @@ class DataRealtime {
                         let result = try self.context.fetch(request)
                         if (result.count >= 1) {
                             let song = result[0] as? Song
-                            print(song?.name ?? "no song")
                             if (song != nil) { tube?.addToSongs(song!) }
                         }
                     } catch {
                         // do nothing
                     }
                 }
+                (UIApplication.shared.delegate as! AppDelegate).saveContext()
                 finished()
             })
         })
