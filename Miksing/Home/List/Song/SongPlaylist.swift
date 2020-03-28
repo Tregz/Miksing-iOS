@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class SongPlaylist : UITableViewController, NSFetchedResultsControllerDelegate {
+class SongController : UITableViewController, NSFetchedResultsControllerDelegate {
 
     let cache:NSCache<AnyObject, AnyObject>! = NSCache()
     let session = URLSession.shared
@@ -62,11 +62,11 @@ class SongPlaylist : UITableViewController, NSFetchedResultsControllerDelegate {
         case .insert: tableView.insertRows(at: [newIndexPath!], with: .fade)
         case .delete: tableView.deleteRows(at: [indexPath!], with: .fade)
         case .update: if (tableView.cellForRow(at: indexPath!) != nil) {
-            let cell =  tableView.cellForRow(at: indexPath!)! as! SongCell
+            let cell =  tableView.cellForRow(at: indexPath!)! as! SongHolder
             configureCell(cell, withEvent: anObject as! Song, indexPath: indexPath!)
         }
         case .move: if (tableView.cellForRow(at: indexPath!) != nil) {
-            let cell =  tableView.cellForRow(at: indexPath!)! as! SongCell
+            let cell =  tableView.cellForRow(at: indexPath!)! as! SongHolder
             configureCell(cell, withEvent: anObject as! Song, indexPath: indexPath!)
             tableView.moveRow(at: indexPath!, to: newIndexPath!)
         }
@@ -137,7 +137,7 @@ class SongPlaylist : UITableViewController, NSFetchedResultsControllerDelegate {
 
     override func tableView(_ tableView: UITableView,
         cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SongCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SongHolder
         let song = fetchedResultsController.object(at: indexPath)
         configureCell(cell, withEvent: song, indexPath: indexPath)
         return cell
@@ -169,7 +169,7 @@ class SongPlaylist : UITableViewController, NSFetchedResultsControllerDelegate {
         return cell
     }
                 
-    private func configureCell(_ cell: SongCell, withEvent song: Song, indexPath: IndexPath) {
+    private func configureCell(_ cell: SongHolder, withEvent song: Song, indexPath: IndexPath) {
         cell.name.text = song.name ?? ""
         cell.artist.text = song.artist ?? ""
         if (self.cache.object(forKey: song.id as AnyObject) != nil) {

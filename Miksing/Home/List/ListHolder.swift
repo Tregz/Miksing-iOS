@@ -7,11 +7,11 @@
 //
 import UIKit
 
-class SongCell : UITableViewCell {
+class ListHolder : UITableViewCell {
     
-    @IBOutlet weak var name: UILabel! // Title
-    @IBOutlet weak var artist: UILabel! // Subtitle
-    @IBOutlet weak var icon: UIImageView! // Thumbnail
+    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var subtitle: UILabel!
+    @IBOutlet weak var thumbnail: UIImageView!
                 
     var expanded: Bool = false
                 

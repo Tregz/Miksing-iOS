@@ -11,6 +11,7 @@ import UIKit
 class HomeScreen : UIViewController {
     
     static let COMPARATOR = "Comparator"
+    
     private var sorting: Int = 0
     
     let sortIcon:[String]! = ["SF_textformat_abc", "SF_calendar_badge_plus"]
@@ -22,4 +23,5 @@ class HomeScreen : UIViewController {
         NotificationCenter.default.post(name: name, object: nil, userInfo: info)
         sender.image = UIImage(named: sortIcon![sorting])
     }
+    
 }

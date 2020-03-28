@@ -8,7 +8,7 @@
 
 import CoreData
 
-class SongSelected : SongPlaylist {
+class SongSelected : SongController {
     
     override func getCurrentTabPosition() -> Int {
         return 1
