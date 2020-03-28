@@ -17,6 +17,11 @@ class TubeController : ListController<Tube> {
     
     override func configureCell(_ cell: ListHolder, withEvent tube: Tube, indexPath: IndexPath) {
         cell.title.text = NSLocalizedString(tube.name ??  "", tableName: "TubeLocalizable", comment: "")
+        let songs = tube.songs
+        if (songs != nil) {
+            for song in songs! { print((song as! Song).name ?? "") }
+        }
+        
         cell.subtitle.text = "" //tube... ?? ""
         if (self.cache.object(forKey: tube.id as AnyObject) != nil) {
             cell.thumbnail.image = self.cache.object(forKey: tube.id as AnyObject) as? UIImage

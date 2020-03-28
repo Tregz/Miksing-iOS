@@ -24,10 +24,10 @@ class DataRealtime {
         //deleteAllData(entity: "Song")
         DispatchQueue.global(qos: .background).async {
             self.retrieveUser(userId: userId) {
-                for tubeId in self.tubeIds {
-                    self.retrieveTube(tubeId: tubeId) {
-                        for songId in self.songIds {
-                            self.retrieveSong(songId: songId) {}
+                for songId in self.songIds {
+                    self.retrieveSong(songId: songId) {
+                        for tubeId in self.tubeIds {
+                            self.retrieveTube(tubeId: tubeId) {}
                         }
                     }
                 }
@@ -94,7 +94,24 @@ class DataRealtime {
             let dictionary = snapshot.value as! [String: AnyObject]
             if (dictionary[DataNotation.NS] != nil) { tube?.name = dictionary[DataNotation.NS] as? String }
             (UIApplication.shared.delegate as! AppDelegate).saveContext()
-            finished()
+            self.ref.database.reference(withPath: "tube/" + tubeId + "/song/").observeSingleEvent(of: .value, with: { snapshot in
+                for child in snapshot.children {
+                    let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Song")
+                    request.fetchLimit = 1
+                    request.predicate = NSPredicate(format: DataNotation.ID + " = %@", (child as! DataSnapshot).key)
+                    do {
+                        let result = try self.context.fetch(request)
+                        if (result.count >= 1) {
+                            let song = result[0] as? Song
+                            print(song?.name ?? "no song")
+                            if (song != nil) { tube?.addToSongs(song!) }
+                        }
+                    } catch {
+                        // do nothing
+                    }
+                }
+                finished()
+            })
         })
     }
     

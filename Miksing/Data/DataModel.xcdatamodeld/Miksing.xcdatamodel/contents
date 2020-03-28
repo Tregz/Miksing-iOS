@@ -12,6 +12,7 @@
         <attribute name="releasedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="updatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="version" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="tubes" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Tube" inverseName="songs" inverseEntity="Tube"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="id"/>
@@ -21,9 +22,10 @@
     <entity name="Tube" representedClassName="Tube" syncable="YES">
         <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="songs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Song" inverseName="tubes" inverseEntity="Song"/>
     </entity>
     <elements>
-        <element name="Song" positionX="-63" positionY="-18" width="128" height="208"/>
-        <element name="Tube" positionX="-63" positionY="63" width="128" height="73"/>
+        <element name="Song" positionX="-63" positionY="-18" width="128" height="223"/>
+        <element name="Tube" positionX="-63" positionY="63" width="128" height="88"/>
     </elements>
 </model>
