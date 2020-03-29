@@ -10,10 +10,10 @@ import CoreData
 
 class SongSelected : SongController {
     
-    var selectedRelationEntityId: String? = nil
+    static var selectedRelationEntityId: String? = nil
     
     override var predicateRelationEntityId: String? {
-        return selectedRelationEntityId
+        return SongSelected.selectedRelationEntityId
     }
     
     override var predicateRelationQuery: String? {
@@ -22,19 +22,10 @@ class SongSelected : SongController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let name = Notification.Name("Songs")
+        let name = Notification.Name(HomePager.notificationPaging)
         NotificationCenter.default.addObserver(forName: name, object: nil, queue: nil) { notification in
-            self.selectedRelationEntityId = notification.userInfo?[TubeController.userInfoKey] as? String
             self.fetchController()
         }
-    }
-    
-    override func getCurrentTabPosition() -> Int {
-        return 1
-    }
-    
-    override func getCacheName() -> String {
-        return "Prepare"
     }
     
 }

@@ -489,10 +489,10 @@
             </objects>
             <point key="canvasLocation" x="799" y="-112"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Home Pager-->
         <scene sceneID="PYE-kN-EpH">
             <objects>
-                <tabBarController id="AJt-wU-QlE" sceneMemberID="viewController">
+                <tabBarController id="AJt-wU-QlE" customClass="HomePager" customModule="Miksing" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="P4V-ZN-uMg"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oa7-wv-I80">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>

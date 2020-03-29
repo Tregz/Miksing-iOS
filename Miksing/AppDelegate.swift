@@ -14,6 +14,7 @@ import Firebase
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
+    var homeScreen:HomeScreen? = nil
     
     func application(_ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
@@ -21,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         let defaultUser = "Zdh2ZOt9AOMKih2cNv00XSwk3fh1"
         DataRealtime.shared.sync(userId: defaultUser)
+        let splitViewController = self.window!.rootViewController as! UISplitViewController
+        homeScreen = splitViewController.viewControllers[1] as? HomeScreen
         return true
     }
 

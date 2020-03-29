@@ -11,8 +11,6 @@ import CoreData
 
 class TubeController : ListController<Tube> {
     
-    static let userInfoKey = "OnDidSelectRowAtFromTubeTable"
-    
     override var descriptors:[String]! { return [DataNotation.NS] }
     override var sortSection:[String]! { return ["alpha"] }
     override var isAscending:[Bool]! { return [true] }
@@ -30,10 +28,43 @@ class TubeController : ListController<Tube> {
     override func tableView(_ tableView: UITableView,
         didSelectRowAt indexPath: IndexPath) {
         if (tableView.cellForRow(at:indexPath) != nil) {
-            let tubeId: String = fetchedResultsController.object(at: indexPath).id ?? ""
-            let data: [String: String] = [TubeController.userInfoKey: tubeId]
-            NotificationCenter.default.post(name: Notification.Name("Songs"), object: nil, userInfo: data)
+            let tubeId: String = fetchedResultsController?.object(at: indexPath).id ?? ""
+            SongSelected.selectedRelationEntityId = tubeId
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let splitViewController = appDelegate.window!.rootViewController as! UISplitViewController
+            self.showDetailView(appDelegate: appDelegate, splitViewController: splitViewController)
         }
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let action = #selector(setDisplayModeToPrimaryHidden(_:))
+        let stop = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: action)
+        navigationController?.topViewController!.navigationItem.rightBarButtonItem = stop
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let splitViewController = appDelegate.window!.rootViewController as! UISplitViewController
+        if splitViewController.preferredDisplayMode == .primaryHidden {
+            splitViewController.preferredDisplayMode = .automatic
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.showDetailView(appDelegate: appDelegate, splitViewController: splitViewController)
+            }
+        }
+    }
+    
+    private func showDetailView(appDelegate: AppDelegate, splitViewController: UISplitViewController) {
+        let info: [String: Int] = [HomePager.notificationPaging: 1]
+        let name = Notification.Name(HomePager.notificationPaging)
+        NotificationCenter.default.post(name: name, object: nil, userInfo: info)
+        splitViewController.showDetailViewController(appDelegate.homeScreen!, sender: self)
+    }
+    
+    @objc func setDisplayModeToPrimaryHidden(_ sender: Any?) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let splitViewController = appDelegate.window!.rootViewController as! UISplitViewController
+        if viewIfLoaded?.window != nil { splitViewController.preferredDisplayMode = .primaryHidden }
+    }
 }

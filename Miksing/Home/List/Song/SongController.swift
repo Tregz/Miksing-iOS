@@ -13,10 +13,6 @@ class SongController : ListController<Song> {
 
     let session = URLSession.shared
     
-    func getCurrentTabPosition() -> Int {
-        return 0
-    }
-    
     override var descriptors:[String]! { return [DataNotation.NS, DataNotation.RD] }
     override var sortSection:[String]! { return ["alpha", "fresh"] }
     override var isAscending:[Bool]! { return [true, false] }
@@ -59,7 +55,7 @@ class SongController : ListController<Song> {
     override func tableView(_ tableView: UITableView,
         didSelectRowAt indexPath: IndexPath) {
         if (tableView.cellForRow(at:indexPath) != nil) {
-            let songId: [String: String] = [DataNotation.ID: fetchedResultsController.object(at: indexPath).id ?? ""]
+            let songId: [String: String] = [DataNotation.ID: fetchedResultsController?.object(at: indexPath).id ?? ""]
             NotificationCenter.default.post(name: Notification.Name("YouTubePlay"), object: nil, userInfo: songId)
         }
     }

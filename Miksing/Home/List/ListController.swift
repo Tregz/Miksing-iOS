@@ -23,10 +23,6 @@ class ListController<T> : UITableViewController, NSFetchedResultsControllerDeleg
     
     var predicateRelationQuery: String? { return nil }
     var predicateRelationEntityId: String? { return nil }
-
-    func getCacheName() -> String {
-        return "Playlist"
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,9 +36,11 @@ class ListController<T> : UITableViewController, NSFetchedResultsControllerDeleg
     // MARK: - Fetched results controller
     
     var _fetchedResultsController: NSFetchedResultsController<T>? = nil
-    var fetchedResultsController: NSFetchedResultsController<T> {
+    var fetchedResultsController: NSFetchedResultsController<T>? {
         if _fetchedResultsController != nil { return _fetchedResultsController! }
+        
         fetchController()
+        if _fetchedResultsController == nil { return nil }
         return _fetchedResultsController!
     }
 
@@ -95,10 +93,13 @@ class ListController<T> : UITableViewController, NSFetchedResultsControllerDeleg
         request.fetchBatchSize = 20 // Set the batch size to a suitable number.
         let sortDescriptor = NSSortDescriptor(key: descriptors![sorting!], ascending: isAscending![sorting!])
         request.sortDescriptors = [sortDescriptor]
-        let aFetchedResultsController = NSFetchedResultsController(fetchRequest:request, managedObjectContext:context!, sectionNameKeyPath:sortSection![sorting!], cacheName: getCacheName())
-        aFetchedResultsController.delegate = self
-        _fetchedResultsController = aFetchedResultsController
-        fetchUpdate()
+        if (context != nil) {
+
+            let aFetchedResultsController = NSFetchedResultsController(fetchRequest:request, managedObjectContext:context!, sectionNameKeyPath:sortSection![sorting!], cacheName: "ListCache")
+            aFetchedResultsController.delegate = self
+            _fetchedResultsController = aFetchedResultsController
+            fetchUpdate()
+        }
     }
     
     func fetchPredicates() -> NSCompoundPredicate {
@@ -118,10 +119,10 @@ class ListController<T> : UITableViewController, NSFetchedResultsControllerDeleg
     }
     
     func fetchUpdate() {
-        NSFetchedResultsController<NSFetchRequestResult>.deleteCache(withName: getCacheName())
-        fetchedResultsController.fetchRequest.predicate = fetchPredicates()
+        NSFetchedResultsController<NSFetchRequestResult>.deleteCache(withName: "ListCache")
+        fetchedResultsController?.fetchRequest.predicate = fetchPredicates()
         do {
-            try self.fetchedResultsController.performFetch()
+            try self.fetchedResultsController?.performFetch()
         } catch {
             let fetchError = error as NSError
             print("Unable to Fetch")
@@ -132,32 +133,32 @@ class ListController<T> : UITableViewController, NSFetchedResultsControllerDeleg
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return fetchedResultsController.sections?.count ?? 0
+        return fetchedResultsController?.sections?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView,
         cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ListHolder
-        let song = fetchedResultsController.object(at: indexPath)
-        configureCell(cell, withEvent: song, indexPath: indexPath)
+        let song = fetchedResultsController?.object(at: indexPath)
+        if song != nil { configureCell(cell, withEvent: song!, indexPath: indexPath) }
         return cell
     }
     
     override func tableView(_ tableView: UITableView,
         numberOfRowsInSection section: Int) -> Int {
-        return fetchedResultsController.sections![section].numberOfObjects
+        return fetchedResultsController?.sections?[section].numberOfObjects ?? 0
     }
     
     override func tableView(_ tableView: UITableView,
         titleForHeaderInSection section: Int) -> String? {
-        if let sections = fetchedResultsController.sections { return sections[section].name }
+        if let sections = fetchedResultsController?.sections { return sections[section].name }
         return nil
     }
     
     override func tableView(_ tableView: UITableView,
         viewForHeaderInSection section: Int) -> UIView? {
         let cell = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SectionLabel")
-        cell?.textLabel?.text = fetchedResultsController.sections?[section].name
+        cell?.textLabel?.text = fetchedResultsController?.sections?[section].name
         return cell
     }
     
