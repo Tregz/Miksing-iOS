@@ -20,6 +20,9 @@ class ListController<T> : UITableViewController, NSFetchedResultsControllerDeleg
     var searchQuery: String { return "" }
     var sorting: Int! = 0
     var sortSection:[String]! { return [] }
+    
+    var predicateRelationQuery: String? { return nil }
+    var predicateRelationEntityId: String? { return nil }
 
     func getCacheName() -> String {
         return "Playlist"
@@ -100,6 +103,9 @@ class ListController<T> : UITableViewController, NSFetchedResultsControllerDeleg
     
     func fetchPredicates() -> NSCompoundPredicate {
         var predicates: [NSPredicate] = []
+        if (predicateRelationEntityId != nil) {
+            predicates.append(NSPredicate(format: predicateRelationQuery!, predicateRelationEntityId!))
+        }
         if (searching != "") { predicates.append(NSPredicate(format: searchQuery, searching, searching)) }
         if filters!.count > 0 {
             var format = DataNotation.GS + "  == " + String(filters![0]!)

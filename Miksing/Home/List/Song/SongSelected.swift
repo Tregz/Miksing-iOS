@@ -10,12 +10,21 @@ import CoreData
 
 class SongSelected : SongController {
     
+    var selectedRelationEntityId: String? = nil
+    
+    override var predicateRelationEntityId: String? {
+        return selectedRelationEntityId
+    }
+    
+    override var predicateRelationQuery: String? {
+        return "ANY tubes.id =[cd] %@"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let name = Notification.Name("Songs")
         NotificationCenter.default.addObserver(forName: name, object: nil, queue: nil) { notification in
-            let songs = notification.userInfo?["Songs"] as? [String] ?? []
-            for songId in songs { print("SongId:" + songId) }
+            self.selectedRelationEntityId = notification.userInfo?[TubeController.userInfoKey] as? String
             self.fetchController()
         }
     }
