@@ -9,15 +9,16 @@
 import UIKit
 import CoreData
 
-class ListController<T> : UITableViewController, NSFetchedResultsControllerDelegate where T: NSManagedObject {
+class ListController<T> : UITableViewController, NSFetchedResultsControllerDelegate, UISearchBarDelegate, UISearchResultsUpdating where T: NSManagedObject {
     
     let cache:NSCache<AnyObject, AnyObject>! = NSCache()
-    var context: NSManagedObjectContext? = nil
+    var context: NSManagedObjectContext? {
+        return (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    }
     var descriptors:[String]! { return [] }
     var filters:[Int?]? = []
     var isAscending:[Bool]! { return [] }
-    var searching:String! = ""
-    var searchQuery: String { return "" }
+    let sortIcon:[String]! = ["SF_textformat_abc", "SF_calendar_badge_plus"]
     var sorting: Int! = 0
     var sortSection:[String]! { return [] }
     
@@ -28,9 +29,50 @@ class ListController<T> : UITableViewController, NSFetchedResultsControllerDeleg
         super.viewDidLoad()
         tableView.delegate = self
         tableView.rowHeight = 43.5;
-        let appDelegate  = UIApplication.shared.delegate as! AppDelegate
-        context = appDelegate.persistentContainer.viewContext
-        clearsSelectionOnViewWillAppear = false // preserve selection between tabs
+        setSearchBar()
+    }
+    
+    // MARK: - Search controller
+    
+    let searchController = UISearchController(searchResultsController: nil)
+    var searching:String! = ""
+    var searchQuery: String { return "" }
+    var searchCancelButtonShows = false
+    
+    func setSearchBar() {
+        searchController.searchBar.placeholder = "Search"
+        let pageColor = UIColor(red: 1, green: 1, blue: 201/255, alpha: 1)
+        if #available(iOS 13.0, *) {
+            searchController.searchBar.searchTextField.backgroundColor = pageColor
+        } else {
+            let searchField = searchController.searchBar.value(forKey: "searchField") as? UITextField
+            searchField?.backgroundColor = pageColor
+        }
+        searchController.searchBar.delegate = self
+        searchController.searchResultsUpdater = self
+        if #available(iOS 11.0, *) { navigationItem.searchController = searchController }
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBarTitleColor()
+    }
+    
+    func searchBarTitleColor() {
+        // Cancel button is not yet available on first load
+        if !searchCancelButtonShows {
+            guard searchController.searchBar.showsCancelButton else {
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) { self.searchBarTitleColor() }
+                return
+            }
+            searchCancelButtonShows = true
+            let button = searchController.searchBar.value(forKey: "cancelButton") as? UIButton
+            button?.setTitleColor(UIColor.white, for: .normal)
+        }
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        searching = searchController.searchBar.text!
+        fetchUpdate()
     }
     
     // MARK: - Fetched results controller
@@ -38,7 +80,6 @@ class ListController<T> : UITableViewController, NSFetchedResultsControllerDeleg
     var _fetchedResultsController: NSFetchedResultsController<T>? = nil
     var fetchedResultsController: NSFetchedResultsController<T>? {
         if _fetchedResultsController != nil { return _fetchedResultsController! }
-        
         fetchController()
         if _fetchedResultsController == nil { return nil }
         return _fetchedResultsController!

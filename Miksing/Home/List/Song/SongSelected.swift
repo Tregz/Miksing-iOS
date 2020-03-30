@@ -7,6 +7,7 @@
 //
 
 import CoreData
+import UIKit
 
 class SongSelected : SongController {
     
@@ -21,28 +22,14 @@ class SongSelected : SongController {
         return "ANY tubes.id =[cd] %@"
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        updateYouTubePlayerPlaylist()
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         let name = Notification.Name(HomePager.notificationPaging)
         NotificationCenter.default.addObserver(forName: name, object: nil, queue: nil) { notification in
             self.fetchController()
             if SongSelected.shouldUpdate {
                 SongSelected.shouldUpdate = false
                 self.updateYouTubePlayerPlaylist()
-            }
-        }
-    }
-    
-    private func updateYouTubePlayerPlaylist() {
-        let clearIds = Notification.Name(PlayWeb.notificationYouTubeClearIds)
-        NotificationCenter.default.post(name: clearIds, object: nil, userInfo: nil)
-        let songs = self.fetchedResultsController?.fetchedObjects
-        if songs != nil {
-            for song in songs! {
-                let userInfo: [String: String] = [DataNotation.ID: song.id ?? ""]
-                let insertId = Notification.Name(PlayWeb.notificationYouTubeInsertId)
-                NotificationCenter.default.post(name: insertId, object: nil, userInfo: userInfo)
             }
         }
     }

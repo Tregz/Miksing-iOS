@@ -13,13 +13,17 @@
     const firstScriptTag = document.getElementsByTagName('script')[0];
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-    const SECONDS_BEFORE_END = 10;
+    /** iOS current limitation (still true on March 30th, 2020)
+     https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/Using_HTML5_Audio_Video/Device-SpecificConsiderations/Device-SpecificConsiderations.html
+     Currently, all devices running iOS are limited to playback of a single audio or video stream at any time. */
+    const SECONDS_BEFORE_END = 1; // iOS current limitation, else: 10
+    const LOOP_IN_INTERVAL = 1; // iOS current limitation, else: 200
     let iFrames, playerLoadingPosition = 1, players, playlist = [];
     let fadingOut = 0, fadingIn = 0, fadingStepLevel = 5, loopIn, loopOut;
     let starting = null, stopping, videoLoadingId, videoBufferingId, videoPlayingId;
 
     function onYouTubeIframeAPIReady() {
-        const player_vars = {showinfo: '0', modestbranding: '1'};
+        const player_vars = {playsinline: '1', modestbranding: '1', showinfo: '0'};
         const events = {'onReady': onPlayerReady, 'onStateChange': onPlayerStateChange};
         const player_one = new YT.Player('player1', {playerVars: player_vars, events: events});
         const player_two = new YT.Player('player2', {playerVars: player_vars, events: events});
@@ -39,8 +43,8 @@
                 fadingIn = 0;
                 clearInterval(loopIn);
                 starting = event.target;
-                loopIn = setInterval(setVolumeUp, 200);
-                setTimeout(fadeOut, 100);
+                loopIn = setInterval(setVolumeUp, LOOP_IN_INTERVAL);
+                // iOS current limitation, else: setTimeout(fadeOut, 100);
             }
         } else if (event.data === YT.PlayerState.BUFFERING) videoBufferingId = videoLoadingId
     }

@@ -15,7 +15,8 @@ class PlayWeb : UIViewController, WKUIDelegate {
     static let notificationYouTubeClearIds = "YouTubeClearIds"
     static let notificationYouTubeInsertId = "YouTubeInsertId"
     static let notificationYouTubeLoadById = "YouTubeLoadById"
-    var youtube: WKWebView? // YouTube Player
+    var youtube: WKWebView? // WKWebView
+    //var youtube: UIWebView? // deprecated
     
     override func viewDidLoad() {
         self.view.isHidden = true
@@ -30,6 +31,7 @@ class PlayWeb : UIViewController, WKUIDelegate {
     
     func countdown() {
         youtube?.evaluateJavaScript("countdown();", completionHandler: nil)
+        // UIWebView: youtube?.stringByEvaluatingJavaScript(from: "countdown();")
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
             self.countdown()
         }
@@ -37,16 +39,19 @@ class PlayWeb : UIViewController, WKUIDelegate {
     
     @objc func clear() {
         youtube?.evaluateJavaScript("clearPlaylist();", completionHandler: nil)
+        // UIWebView: youtube?.stringByEvaluatingJavaScript(from: "clearPlaylist();")
     }
     
     @objc func insert(notification: NSNotification) {
         let songId: String = notification.userInfo?[DataNotation.ID] as? String ?? ""
         youtube?.evaluateJavaScript("addVideoById('" + songId + "');", completionHandler: nil)
+        // UIWebView: youtube?.stringByEvaluatingJavaScript(from: "addVideoById('" + songId + "');")
     }
     
     @objc func unhide(notification: NSNotification) {
         let songId: String = notification.userInfo?[DataNotation.ID] as? String ?? ""
         youtube?.evaluateJavaScript("loadVideoById('" + songId + "');", completionHandler: nil)
+        // UIWebView: youtube?.stringByEvaluatingJavaScript(from: "loadVideoById('" + songId + "');")
         if (self.view.isHidden) {
             self.view.isHidden = false
             self.view.layoutIfNeeded()
@@ -59,15 +64,15 @@ class PlayWeb : UIViewController, WKUIDelegate {
         webview.autoresizingMask = [.flexibleWidth, .flexibleHeight, .flexibleLeftMargin, .flexibleRightMargin]
         webview.configuration.preferences.javaScriptEnabled = true
         webview.configuration.allowsInlineMediaPlayback = true
-        if #available(iOS 10.0, *) {
-            webview.configuration.mediaTypesRequiringUserActionForPlayback = .video
-        }
-        webview.uiDelegate = self
+        webview.uiDelegate = self // enable javascript alert message
+        // UIWebView: let webview = UIWebView(frame: self.view.bounds)
+        // UIWebView: webview.allowsInlineMediaPlayback = true
         youtube = webview
         view.addSubview(youtube!)
         if let filePath = Bundle.main.url(forResource: "youtube", withExtension: "html") {
-          let request = NSURLRequest(url: filePath)
-          youtube?.load(request as URLRequest)
+            let request = URLRequest(url: filePath)
+            youtube?.load(request)
+            // UIWebView: youtube?.loadRequest(request)
         }        
     }
     

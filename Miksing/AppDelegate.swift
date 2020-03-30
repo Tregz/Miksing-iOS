@@ -9,12 +9,13 @@
 import UIKit
 import CoreData
 import Firebase
+import AVKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    var homeScreen:HomeScreen? = nil
+    var homeScreen: UIViewController? = nil
     
     func application(_ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
@@ -23,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let defaultUser = "Zdh2ZOt9AOMKih2cNv00XSwk3fh1"
         DataRealtime.shared.sync(userId: defaultUser)
         let splitViewController = self.window!.rootViewController as! UISplitViewController
-        homeScreen = splitViewController.viewControllers[1] as? HomeScreen
+        homeScreen = splitViewController.viewControllers[1]
         return true
     }
 

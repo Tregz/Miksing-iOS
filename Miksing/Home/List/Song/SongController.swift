@@ -10,7 +10,13 @@ import UIKit
 import CoreData
 
 class SongController : ListController<Song> {
-
+    
+    @IBAction func btSort(_ sender: UIButton) {
+        if sorting < 1 { sorting += 1 } else { sorting = 0 }
+        sender.setImage(UIImage(named: sortIcon![sorting]), for: UIControl.State.normal)
+        self.fetchController()
+    }
+    
     let session = URLSession.shared
     
     override var descriptors:[String]! { return [DataNotation.NS, DataNotation.RD] }
@@ -20,13 +26,8 @@ class SongController : ListController<Song> {
         return "(" + DataNotation.NS + " contains [cd] %@) || (" + DataNotation.AS + " contains [cd] %@)"
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()        
-        let name = Notification.Name(HomeScreen.COMPARATOR)
-        NotificationCenter.default.addObserver(forName: name, object: nil, queue: nil) { notification in
-            self.sorting = notification.userInfo?["Comparator"] as? Int ?? 0
-            self.fetchController()
-        }
+    override func viewDidLayoutSubviews() {
+        updateYouTubePlayerPlaylist()
     }
     
     // MARK: - Table view data source
@@ -58,6 +59,19 @@ class SongController : ListController<Song> {
             let songId: [String: String] = [DataNotation.ID: fetchedResultsController?.object(at: indexPath).id ?? ""]
             let notificationLoadById =  Notification.Name(PlayWeb.notificationYouTubeLoadById)
             NotificationCenter.default.post(name: notificationLoadById, object: nil, userInfo: songId)
+        }
+    }
+    
+    func updateYouTubePlayerPlaylist() {
+        let clearIds = Notification.Name(PlayWeb.notificationYouTubeClearIds)
+        NotificationCenter.default.post(name: clearIds, object: nil, userInfo: nil)
+        let songs = self.fetchedResultsController?.fetchedObjects
+        if songs != nil {
+            for song in songs! {
+                let userInfo: [String: String] = [DataNotation.ID: song.id ?? ""]
+                let insertId = Notification.Name(PlayWeb.notificationYouTubeInsertId)
+                NotificationCenter.default.post(name: insertId, object: nil, userInfo: userInfo)
+            }
         }
     }
                 
