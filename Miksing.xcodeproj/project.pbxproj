@@ -251,8 +251,8 @@
 		0243A978242FD21800E028F4 /* List */ = {
 			isa = PBXGroup;
 			children = (
-				0243A971242FCE3B00E028F4 /* Tube */,
 				02517816242956020080EC2D /* Song */,
+				0243A971242FCE3B00E028F4 /* Tube */,
 				0243A976242FCF9800E028F4 /* ListController.swift */,
 				0251781D242979430080EC2D /* ListHolder.swift */,
 			);
@@ -282,8 +282,8 @@
 		0251780A242939E50080EC2D /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				0243A979242FEF1A00E028F4 /* Tube */,
 				0243A960242F663000E028F4 /* Song */,
+				0243A979242FEF1A00E028F4 /* Tube */,
 				020DDE5324286AFC000DBB42 /* DataModel.xcdatamodeld */,
 				0251780B24293A0E0080EC2D /* DataRealtime.swift */,
 				0243A96D242F81E200E028F4 /* DataNotation.swift */,

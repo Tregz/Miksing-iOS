@@ -30,6 +30,7 @@ class TubeController : ListController<Tube> {
         if (tableView.cellForRow(at:indexPath) != nil) {
             let tubeId: String = fetchedResultsController?.object(at: indexPath).id ?? ""
             SongSelected.selectedRelationEntityId = tubeId
+            SongSelected.shouldUpdate = true
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             let splitViewController = appDelegate.window!.rootViewController as! UISplitViewController
             self.showDetailView(appDelegate: appDelegate, splitViewController: splitViewController)

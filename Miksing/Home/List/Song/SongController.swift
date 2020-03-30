@@ -56,7 +56,8 @@ class SongController : ListController<Song> {
         didSelectRowAt indexPath: IndexPath) {
         if (tableView.cellForRow(at:indexPath) != nil) {
             let songId: [String: String] = [DataNotation.ID: fetchedResultsController?.object(at: indexPath).id ?? ""]
-            NotificationCenter.default.post(name: Notification.Name("YouTubePlay"), object: nil, userInfo: songId)
+            let notificationLoadById =  Notification.Name(PlayWeb.notificationYouTubeLoadById)
+            NotificationCenter.default.post(name: notificationLoadById, object: nil, userInfo: songId)
         }
     }
                 
