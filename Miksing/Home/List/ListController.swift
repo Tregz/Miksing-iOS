@@ -146,7 +146,6 @@ class ListController<T> : UITableViewController, NSFetchedResultsControllerDeleg
         let sortDescriptor = NSSortDescriptor(key: descriptors![sorting!], ascending: isAscending![sorting!])
         request.sortDescriptors = [sortDescriptor]
         if (context != nil) {
-
             let aFetchedResultsController = NSFetchedResultsController(fetchRequest:request, managedObjectContext:context!, sectionNameKeyPath:sortSection![sorting!], cacheName: "ListCache")
             aFetchedResultsController.delegate = self
             _fetchedResultsController = aFetchedResultsController
@@ -159,7 +158,10 @@ class ListController<T> : UITableViewController, NSFetchedResultsControllerDeleg
         if (predicateRelationEntityId != nil) {
             predicates.append(NSPredicate(format: predicateRelationQuery!, predicateRelationEntityId!))
         }
-        if (searching != "") { predicates.append(NSPredicate(format: searchQuery, searching, searching)) }
+        /* if (searching != "") { predicates.append(NSPredicate(format: searchQuery, searching, searching)) } */
+        if (searching != "" && searchQuery != "") {
+            predicates.append(NSPredicate(format: searchQuery, searching))
+        }
         if filters!.count > 0 {
             var format = DataNotation.GS + "  == " + String(filters![0]!)
             for i in 1..<filters!.count {

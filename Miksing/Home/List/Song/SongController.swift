@@ -22,8 +22,11 @@ class SongController : ListController<Song> {
     override var descriptors:[String]! { return [DataNotation.NS, DataNotation.RD] }
     override var sortSection:[String]! { return ["alpha", "fresh"] }
     override var isAscending:[Bool]! { return [true, false] }
-    override var searchQuery: String {
+    /* override var searchQuery: String {
         return "(" + DataNotation.NS + " contains [cd] %@) || (" + DataNotation.AS + " contains [cd] %@)"
+    } */
+    override var searchQuery: String {
+        return "(" + DataNotation.NS + " contains [cd] %@)"
     }
     
     override func viewDidLayoutSubviews() {
@@ -34,7 +37,19 @@ class SongController : ListController<Song> {
     // MARK: - Table view data source
                 
     override func configureCell(_ cell: ListHolder, withEvent song: Song, indexPath: IndexPath) {
-        cell.title.text = song.name ?? ""
+        let text = NSMutableAttributedString()
+        let font1 = UIFont.systemFont(ofSize: 17)
+        let attribute1:[NSAttributedString.Key: Any] = [.font : font1]
+        let text1 = NSAttributedString(string: song.name ?? "", attributes: attribute1)
+        text.append(text1)
+        let mixedBy = song.mixedBy
+        if mixedBy != nil {
+            let font2 = UIFont.boldSystemFont(ofSize: 15)
+            let attribute2 = [.font : font2, NSAttributedString.Key.foregroundColor: UIColor.purple]
+            let text2 = NSAttributedString(string: " (" + mixedBy! + ")", attributes: attribute2)
+            text.append(text2)
+        }
+        cell.title.attributedText = text
         cell.subtitle.text = song.artist ?? ""
         if (self.cache.object(forKey: song.id as AnyObject) != nil) {
             cell.thumbnail.image = self.cache.object(forKey: song.id as AnyObject) as? UIImage }

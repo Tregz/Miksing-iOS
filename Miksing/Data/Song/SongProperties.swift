@@ -28,5 +28,6 @@ extension Song {
     @NSManaged public var releasedAt: Date?
     @NSManaged public var updatedAt: Date?
     @NSManaged public var version: Int16
+    @NSManaged public var user: User?
 
 }

@@ -11,13 +11,18 @@ import CoreData
 
 class TubeController : ListController<Tube> {
     
-    override var descriptors:[String]! { return [DataNotation.NS] }
+    override var descriptors:[String]! { return [DataNotation.ID] }
     override var sortSection:[String]! { return ["alpha"] }
     override var isAscending:[Bool]! { return [true] }
+    override var searchQuery: String {
+        if (NSLocale.current.languageCode == "fr") { return "(langs.fr contains [cd] %@)" }
+        else { return "(langs.en contains [cd] %@)" }
+    }
     
     override func configureCell(_ cell: ListHolder, withEvent tube: Tube, indexPath: IndexPath) {
-        cell.title.text = NSLocalizedString(tube.name ??  "", tableName: "TubeLocalizable", comment: "")
-        cell.subtitle.text = "" //tube... ?? ""
+        cell.title.text = tube.name ?? ""
+        cell.prefix.text = NSLocalizedString("by", tableName: "TubeLocalizable", comment: "") + " "
+        cell.subtitle.text = tube.user?.name ?? ""
         if (self.cache.object(forKey: tube.id as AnyObject) != nil) {
             cell.thumbnail.image = self.cache.object(forKey: tube.id as AnyObject) as? UIImage
         } else if (tube.id != nil) {

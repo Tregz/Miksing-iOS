@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19E266" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Lang" representedClassName="Lang" syncable="YES" codeGenerationType="class">
+        <attribute name="en" optional="YES" attributeType="String"/>
+        <attribute name="fr" optional="YES" attributeType="String"/>
+        <attribute name="id" attributeType="String"/>
+        <relationship name="tubes" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Tube" inverseName="langs" inverseEntity="Tube"/>
+    </entity>
     <entity name="Song" representedClassName="Song" syncable="YES">
         <attribute name="artist" optional="YES" attributeType="String"/>
         <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
@@ -13,6 +19,7 @@
         <attribute name="updatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="version" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="tubes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tube" inverseName="songs" inverseEntity="Tube"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="songs" inverseEntity="User"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="id"/>
@@ -20,12 +27,24 @@
         </uniquenessConstraints>
     </entity>
     <entity name="Tube" representedClassName="Tube" syncable="YES">
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" attributeType="String"/>
+        <attribute name="name" optional="YES" transient="YES" attributeType="String"/>
+        <relationship name="langs" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Lang" inverseName="tubes" inverseEntity="Lang"/>
+        <relationship name="songs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Song" inverseName="tubes" inverseEntity="Song"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="tubes" inverseEntity="User"/>
+    </entity>
+    <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class">
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
-        <relationship name="songs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Song" inverseName="tubes" inverseEntity="Song"/>
+        <relationship name="songs" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Song" inverseName="user" inverseEntity="Song"/>
+        <relationship name="tubes" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Tube" inverseName="user" inverseEntity="Tube"/>
     </entity>
     <elements>
-        <element name="Song" positionX="-63" positionY="-18" width="128" height="223"/>
-        <element name="Tube" positionX="-63" positionY="63" width="128" height="88"/>
+        <element name="Song" positionX="-63" positionY="-18" width="128" height="238"/>
+        <element name="Tube" positionX="-63" positionY="63" width="128" height="133"/>
+        <element name="Lang" positionX="-54" positionY="81" width="128" height="103"/>
+        <element name="User" positionX="-45" positionY="90" width="128" height="118"/>
     </elements>
 </model>

@@ -6,7 +6,4 @@
   Copyright © 2020 Tregz. All rights reserved.
 */
 
-"tx_tube_default" = "Liste préparée";
-"tx_tube_apero" = "Liste apero de Miksing";
-"tx_tube_bistro" = "Liste bistro de Miksing";
-"tx_tube_club" = "Liste club de Miksing";
+"by" = "Par";

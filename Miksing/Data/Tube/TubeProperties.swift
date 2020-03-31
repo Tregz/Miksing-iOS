@@ -2,7 +2,7 @@
 //  Tube+CoreDataProperties.swift
 //  Miksing
 //
-//  Created by Jerome Robbins on 2020-03-28.
+//  Created by Jerome Robbins on 2020-03-31.
 //  Copyright © 2020 Tregz. All rights reserved.
 //
 //
@@ -18,8 +18,10 @@ extension Tube {
     }
 
     @NSManaged public var id: String?
-    @NSManaged public var name: String?
+    @NSManaged public var createdAt: Date?
     @NSManaged public var songs: NSSet?
+    @NSManaged public var langs: Lang?
+    @NSManaged public var user: User?
 
 }
 

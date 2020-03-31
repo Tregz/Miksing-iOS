@@ -6,7 +6,4 @@
   Copyright © 2020 Tregz. All rights reserved.
 */
 
-"tx_tube_default" = "Prepared playlist";
-"tx_tube_apero" = "Miksing\'s apero playlist";
-"tx_tube_bistro" = "Miksing\'s bistro playlist";
-"tx_tube_club" = "Miksing\'s club playlist";
+"by" = "By";
