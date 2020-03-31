@@ -55,9 +55,25 @@ class ListController<T> : UITableViewController, NSFetchedResultsControllerDeleg
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchBarTitleColor()
+        setAVPanoramicAspect(isPanoramic: false)
     }
     
-    func searchBarTitleColor() {
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        setAVPanoramicAspect(isPanoramic: true)
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        searching = searchController.searchBar.text!
+        fetchUpdate()
+    }
+    
+    private func setAVPanoramicAspect(isPanoramic: Bool) {
+        let name = Notification.Name(HomeController.notificationPanoramicAspect)
+        let info = [HomeController.notificationPanoramicAspect: isPanoramic]
+        NotificationCenter.default.post(name: name, object: nil, userInfo: info)
+    }
+    
+    private func searchBarTitleColor() {
         // Cancel button is not yet available on first load
         if !searchCancelButtonShows {
             guard searchController.searchBar.showsCancelButton else {
@@ -68,11 +84,6 @@ class ListController<T> : UITableViewController, NSFetchedResultsControllerDeleg
             let button = searchController.searchBar.value(forKey: "cancelButton") as? UIButton
             button?.setTitleColor(UIColor.white, for: .normal)
         }
-    }
-    
-    func updateSearchResults(for searchController: UISearchController) {
-        searching = searchController.searchBar.text!
-        fetchUpdate()
     }
     
     // MARK: - Fetched results controller

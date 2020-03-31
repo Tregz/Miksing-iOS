@@ -27,6 +27,7 @@ class SongController : ListController<Song> {
     }
     
     override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         updateYouTubePlayerPlaylist()
     }
     

@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Home Controller-->
         <scene sceneID="Kmm-2g-nQ2">
             <objects>
-                <viewController id="Fyh-RF-eiM" sceneMemberID="viewController">
+                <viewController id="Fyh-RF-eiM" customClass="HomeController" customModule="Miksing" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WXJ-aI-WFJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -38,12 +38,13 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstItem="0Og-B2-IGo" firstAttribute="leading" secondItem="mHe-Nq-wd4" secondAttribute="leading" id="7kf-AP-Bhy"/>
+                                            <constraint firstAttribute="height" priority="998" id="KQp-Ya-nNC"/>
                                             <constraint firstItem="0Og-B2-IGo" firstAttribute="top" secondItem="mHe-Nq-wd4" secondAttribute="top" id="QQu-Wg-CpU"/>
                                             <constraint firstAttribute="trailing" secondItem="tpU-tg-209" secondAttribute="trailing" id="Yg5-BY-hRv"/>
                                             <constraint firstItem="tpU-tg-209" firstAttribute="top" secondItem="mHe-Nq-wd4" secondAttribute="top" id="ZNa-t9-MiW"/>
                                             <constraint firstAttribute="trailing" secondItem="0Og-B2-IGo" secondAttribute="trailing" id="eUy-Wo-fhw"/>
                                             <constraint firstAttribute="bottom" secondItem="0Og-B2-IGo" secondAttribute="bottom" id="nYX-ld-HER"/>
-                                            <constraint firstAttribute="width" secondItem="mHe-Nq-wd4" secondAttribute="height" multiplier="16:9" id="sq2-jX-1Hl"/>
+                                            <constraint firstAttribute="width" secondItem="mHe-Nq-wd4" secondAttribute="height" multiplier="16:9" priority="999" id="sq2-jX-1Hl"/>
                                             <constraint firstAttribute="bottom" secondItem="tpU-tg-209" secondAttribute="bottom" id="w5G-Qg-tYZ"/>
                                             <constraint firstItem="tpU-tg-209" firstAttribute="leading" secondItem="mHe-Nq-wd4" secondAttribute="leading" id="zb9-Ci-293"/>
                                         </constraints>
@@ -61,7 +62,7 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="OFO-Zg-aOt" firstAttribute="trailing" secondItem="aQp-f5-gVU" secondAttribute="trailing" id="8t9-rr-7ic"/>
                             <constraint firstItem="aQp-f5-gVU" firstAttribute="leading" secondItem="WXJ-aI-WFJ" secondAttribute="leading" id="cdt-mS-aOh"/>
@@ -70,6 +71,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="OFO-Zg-aOt"/>
                     </view>
+                    <connections>
+                        <outlet property="avPanoramicHeight" destination="KQp-Ya-nNC" id="Br7-kn-GAd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qYH-mT-w1P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -179,10 +183,10 @@
             </objects>
             <point key="canvasLocation" x="801" y="-538"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Home Drawer-->
         <scene sceneID="y31-9e-H17">
             <objects>
-                <navigationController id="uUG-Cl-9WX" sceneMemberID="viewController">
+                <navigationController id="uUG-Cl-9WX" customClass="HomeDrawer" customModule="Miksing" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="x30-T4-f4I">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -355,13 +359,13 @@
                     <view key="view" contentMode="scaleToFill" id="4RZ-LP-vFs">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="233"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="NND-Sr-V7v"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9o0-yz-HNu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1730" y="-230"/>
+            <point key="canvasLocation" x="1728.985507246377" y="-230.02232142857142"/>
         </scene>
         <!--Playlist Navigation-->
         <scene sceneID="v2x-aq-1DQ">
