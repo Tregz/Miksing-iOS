@@ -29,6 +29,7 @@ class ListController<T> : UITableViewController, NSFetchedResultsControllerDeleg
         super.viewDidLoad()
         tableView.delegate = self
         tableView.rowHeight = 43.5;
+        tableView.backgroundColor = BaseColor.primaryLight
         setSearchBar()
     }
     
@@ -41,12 +42,11 @@ class ListController<T> : UITableViewController, NSFetchedResultsControllerDeleg
     
     func setSearchBar() {
         searchController.searchBar.placeholder = "Search"
-        let pageColor = UIColor(red: 1, green: 1, blue: 201/255, alpha: 1)
         if #available(iOS 13.0, *) {
-            searchController.searchBar.searchTextField.backgroundColor = pageColor
+            searchController.searchBar.searchTextField.backgroundColor = BaseColor.primaryPage
         } else {
             let searchField = searchController.searchBar.value(forKey: "searchField") as? UITextField
-            searchField?.backgroundColor = pageColor
+            searchField?.backgroundColor = BaseColor.primaryPage
         }
         searchController.searchBar.delegate = self
         searchController.searchResultsUpdater = self
@@ -214,6 +214,10 @@ class ListController<T> : UITableViewController, NSFetchedResultsControllerDeleg
         let cell = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SectionLabel")
         cell?.textLabel?.text = fetchedResultsController?.sections?[section].name
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        view.tintColor = BaseColor.primaryLight
     }
     
     func configureCell(_ cell: ListHolder, withEvent data: T, indexPath: IndexPath) {}

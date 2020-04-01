@@ -19,6 +19,26 @@ class TubeController : ListController<Tube> {
         else { return "(langs.en contains [cd] %@)" }
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let action = #selector(setDisplayModeToPrimaryHidden(_:))
+        let stop = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: action)
+        stop.tintColor = BaseColor.secondaryDark
+        navigationController?.topViewController!.navigationItem.rightBarButtonItem = stop
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let splitViewController = appDelegate.window!.rootViewController as! UISplitViewController
+        if splitViewController.preferredDisplayMode == .primaryHidden {
+            splitViewController.preferredDisplayMode = .automatic
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.showDetailView(appDelegate: appDelegate, splitViewController: splitViewController)
+            }
+        }
+    }
+    
     override func configureCell(_ cell: ListHolder, withEvent tube: Tube, indexPath: IndexPath) {
         cell.title.text = tube.name ?? ""
         cell.prefix.text = NSLocalizedString("by", tableName: "TubeLocalizable", comment: "") + " "
@@ -39,25 +59,6 @@ class TubeController : ListController<Tube> {
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             let splitViewController = appDelegate.window!.rootViewController as! UISplitViewController
             self.showDetailView(appDelegate: appDelegate, splitViewController: splitViewController)
-        }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        let action = #selector(setDisplayModeToPrimaryHidden(_:))
-        let stop = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: action)
-        navigationController?.topViewController!.navigationItem.rightBarButtonItem = stop
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let splitViewController = appDelegate.window!.rootViewController as! UISplitViewController
-        if splitViewController.preferredDisplayMode == .primaryHidden {
-            splitViewController.preferredDisplayMode = .automatic
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                self.showDetailView(appDelegate: appDelegate, splitViewController: splitViewController)
-            }
         }
     }
     

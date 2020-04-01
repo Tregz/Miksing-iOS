@@ -22,10 +22,9 @@ class SongController : ListController<Song> {
     override var descriptors:[String]! { return [DataNotation.NS, DataNotation.RD] }
     override var sortSection:[String]! { return ["alpha", "fresh"] }
     override var isAscending:[Bool]! { return [true, false] }
-    /* override var searchQuery: String {
-        return "(" + DataNotation.NS + " contains [cd] %@) || (" + DataNotation.AS + " contains [cd] %@)"
-    } */
+    
     override var searchQuery: String {
+        //return "(" + DataNotation.NS + " contains [cd] %@) || (" + DataNotation.AS + " contains [cd] %@)"
         return "(" + DataNotation.NS + " contains [cd] %@)"
     }
     

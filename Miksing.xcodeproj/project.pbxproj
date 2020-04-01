@@ -34,8 +34,9 @@
 		027EADD22433881A005EF01A /* UserHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027EADD12433881A005EF01A /* UserHelper.swift */; };
 		027EADD524338F16005EF01A /* Tube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027EADD324338F16005EF01A /* Tube.swift */; };
 		027EADD624338F16005EF01A /* TubeProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027EADD424338F16005EF01A /* TubeProperties.swift */; };
+		027EADD82434D205005EF01A /* BaseColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027EADD72434D205005EF01A /* BaseColor.swift */; };
+		027EADDA2434D520005EF01A /* ListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027EADD92434D520005EF01A /* ListSection.swift */; };
 		02E59BB424310AB80005D06A /* HomePager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E59BB324310AB70005D06A /* HomePager.swift */; };
-		02E59BB6243112C30005D06A /* CoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E59BB5243112C30005D06A /* CoreController.swift */; };
 		23BD2E390CAC68383577311C /* libPods-MiksingTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E8DC5DD92E390577D9A35959 /* libPods-MiksingTests.a */; };
 		412D002F261992573F7DBF8C /* libPods-Miksing.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31B3133834A6CA6F0B8227F0 /* libPods-Miksing.a */; };
 		DCD89111F309439E237570A8 /* libPods-Miksing-MiksingUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 46BA42535400CECD59EC7523 /* libPods-Miksing-MiksingUITests.a */; };
@@ -94,8 +95,9 @@
 		027EADD12433881A005EF01A /* UserHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHelper.swift; sourceTree = "<group>"; };
 		027EADD324338F16005EF01A /* Tube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tube.swift; sourceTree = "<group>"; };
 		027EADD424338F16005EF01A /* TubeProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TubeProperties.swift; sourceTree = "<group>"; };
+		027EADD72434D205005EF01A /* BaseColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseColor.swift; sourceTree = "<group>"; };
+		027EADD92434D520005EF01A /* ListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSection.swift; sourceTree = "<group>"; };
 		02E59BB324310AB70005D06A /* HomePager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePager.swift; sourceTree = "<group>"; };
-		02E59BB5243112C30005D06A /* CoreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreController.swift; sourceTree = "<group>"; };
 		0F8961E805A2009045AB486F /* Pods-MiksingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiksingTests.debug.xcconfig"; path = "Target Support Files/Pods-MiksingTests/Pods-MiksingTests.debug.xcconfig"; sourceTree = "<group>"; };
 		31B3133834A6CA6F0B8227F0 /* libPods-Miksing.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Miksing.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		46BA42535400CECD59EC7523 /* libPods-Miksing-MiksingUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Miksing-MiksingUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,7 +141,6 @@
 			isa = PBXGroup;
 			children = (
 				02054B822429CFB0003F886B /* Play */,
-				02E59BB5243112C30005D06A /* CoreController.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -166,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				020DDE5D24286AFE000DBB42 /* BaseScreen.storyboard */,
+				027EADD72434D205005EF01A /* BaseColor.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -259,6 +261,7 @@
 				0243A971242FCE3B00E028F4 /* Tube */,
 				0243A976242FCF9800E028F4 /* ListController.swift */,
 				0251781D242979430080EC2D /* ListHolder.swift */,
+				027EADD92434D520005EF01A /* ListSection.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -548,14 +551,15 @@
 				02054B812429B7E0003F886B /* PlayVideo.swift in Sources */,
 				020DDE5024286AFC000DBB42 /* AppDelegate.swift in Sources */,
 				02517818242956650080EC2D /* SongController.swift in Sources */,
+				027EADD82434D205005EF01A /* BaseColor.swift in Sources */,
 				0251781E242979430080EC2D /* ListHolder.swift in Sources */,
+				027EADDA2434D520005EF01A /* ListSection.swift in Sources */,
 				0243A96C242F6DD200E028F4 /* SongProperties.swift in Sources */,
 				027EADD22433881A005EF01A /* UserHelper.swift in Sources */,
 				02054B842429CFEF003F886B /* PlayWeb.swift in Sources */,
 				027EADD524338F16005EF01A /* Tube.swift in Sources */,
 				0251780C24293A0E0080EC2D /* DataRealtime.swift in Sources */,
 				020DDE5524286AFC000DBB42 /* DataModel.xcdatamodeld in Sources */,
-				02E59BB6243112C30005D06A /* CoreController.swift in Sources */,
 				0251781A24296F980080EC2D /* SongSelected.swift in Sources */,
 				0243A96E242F81E200E028F4 /* DataNotation.swift in Sources */,
 				0243A977242FCF9800E028F4 /* ListController.swift in Sources */,

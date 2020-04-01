@@ -15,5 +15,13 @@ class ListHolder : UITableViewCell {
     @IBOutlet weak var thumbnail: UIImageView!
                 
     var expanded: Bool = false
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        backgroundColor = BaseColor.primaryPage
+        let selectedView = UIView()
+        selectedView.backgroundColor = UIColor.white
+        selectedBackgroundView = selectedView
+    }
                 
 }
