@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,11 +13,11 @@
             <objects>
                 <viewController id="Fyh-RF-eiM" customClass="HomeController" customModule="Miksing" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WXJ-aI-WFJ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="aQp-f5-gVU">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="730"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mHe-Nq-wd4">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="233"/>
@@ -50,7 +50,7 @@
                                         </constraints>
                                     </view>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XLe-fd-gwV">
-                                        <rect key="frame" x="0.0" y="233" width="414" height="541"/>
+                                        <rect key="frame" x="0.0" y="233" width="414" height="497"/>
                                         <connections>
                                             <segue destination="AJt-wU-QlE" kind="embed" id="yO2-Lt-4y3"/>
                                         </connections>
@@ -71,6 +71,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="OFO-Zg-aOt"/>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="avPanoramicHeight" destination="KQp-Ya-nNC" id="Br7-kn-GAd"/>
                     </connections>
@@ -86,7 +87,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Xpw-DX-GyQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SectionLabel" textLabel="7w3-of-hyZ" style="IBUITableViewCellStyleDefault" id="WxS-lM-jRa">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
@@ -196,14 +197,16 @@
             </objects>
             <point key="canvasLocation" x="801" y="-538"/>
         </scene>
-        <!--Home Drawer-->
+        <!--Navigation Controller-->
         <scene sceneID="y31-9e-H17">
             <objects>
-                <navigationController id="uUG-Cl-9WX" customClass="HomeDrawer" customModule="Miksing" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="uUG-Cl-9WX" sceneMemberID="viewController">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="x30-T4-f4I">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="1" green="0.8666666666666667" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="1" green="0.8666666666666667" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="WZl-Yj-ebc" kind="relationship" relationship="rootViewController" id="xEG-jK-FTO"/>
@@ -213,10 +216,10 @@
             </objects>
             <point key="canvasLocation" x="-117" y="-538"/>
         </scene>
-        <!--Split View Controller-->
+        <!--Home Spliter-->
         <scene sceneID="SCw-0R-O9Q">
             <objects>
-                <splitViewController id="ZZj-3j-V5V" sceneMemberID="viewController">
+                <splitViewController interfaceStyle="dark" id="ZZj-3j-V5V" customClass="HomeSpliter" sceneMemberID="viewController">
                     <connections>
                         <segue destination="uUG-Cl-9WX" kind="relationship" relationship="masterViewController" id="NDn-hI-u1g"/>
                         <segue destination="Fyh-RF-eiM" kind="relationship" relationship="detailViewController" id="sXQ-bS-uRg"/>
@@ -229,9 +232,9 @@
         <!--Song Controller-->
         <scene sceneID="6vG-e4-H1u">
             <objects>
-                <tableViewController id="6cC-6N-1W4" customClass="SongController" customModule="Miksing" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController clearsSelectionOnViewWillAppear="NO" id="6cC-6N-1W4" customClass="SongController" customModule="Miksing" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="pi3-Lz-uzp">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="541"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="409"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
@@ -375,6 +378,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bRJ-Mn-Aee">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <connections>
@@ -405,9 +409,10 @@
             <objects>
                 <navigationController id="Lwv-zX-vnx" userLabel="Playlist Navigation" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Playlist" image="SF_music_note" id="BJQ-iW-RQP"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SOZ-RC-3ld">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="SOZ-RC-3ld">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <connections>
@@ -451,9 +456,9 @@
         <!--Song Selected-->
         <scene sceneID="XvU-GB-GPS">
             <objects>
-                <tableViewController id="gyU-2b-x2t" customClass="SongSelected" customModule="Miksing" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController clearsSelectionOnViewWillAppear="NO" id="gyU-2b-x2t" customClass="SongSelected" customModule="Miksing" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="k6E-w0-lcN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="541"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="497"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>

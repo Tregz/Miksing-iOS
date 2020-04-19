@@ -30,11 +30,10 @@
 		0251781A24296F980080EC2D /* SongSelected.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0251781924296F980080EC2D /* SongSelected.swift */; };
 		0251781E242979430080EC2D /* ListHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0251781D242979430080EC2D /* ListHolder.swift */; };
 		027EADC2243295B5005EF01A /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027EADC1243295B5005EF01A /* HomeController.swift */; };
-		027EADC42432AA49005EF01A /* HomeDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027EADC32432AA49005EF01A /* HomeDrawer.swift */; };
 		027EADD22433881A005EF01A /* UserHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027EADD12433881A005EF01A /* UserHelper.swift */; };
 		027EADD524338F16005EF01A /* Tube.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027EADD324338F16005EF01A /* Tube.swift */; };
 		027EADD624338F16005EF01A /* TubeProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027EADD424338F16005EF01A /* TubeProperties.swift */; };
-		027EADD82434D205005EF01A /* BaseColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027EADD72434D205005EF01A /* BaseColor.swift */; };
+		027EADD82434D205005EF01A /* TintColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027EADD72434D205005EF01A /* TintColor.swift */; };
 		027EADDA2434D520005EF01A /* ListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027EADD92434D520005EF01A /* ListSection.swift */; };
 		02E59BB424310AB80005D06A /* HomePager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E59BB324310AB70005D06A /* HomePager.swift */; };
 		23BD2E390CAC68383577311C /* libPods-MiksingTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E8DC5DD92E390577D9A35959 /* libPods-MiksingTests.a */; };
@@ -91,11 +90,10 @@
 		0251781924296F980080EC2D /* SongSelected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongSelected.swift; sourceTree = "<group>"; };
 		0251781D242979430080EC2D /* ListHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListHolder.swift; sourceTree = "<group>"; };
 		027EADC1243295B5005EF01A /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
-		027EADC32432AA49005EF01A /* HomeDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDrawer.swift; sourceTree = "<group>"; };
 		027EADD12433881A005EF01A /* UserHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHelper.swift; sourceTree = "<group>"; };
 		027EADD324338F16005EF01A /* Tube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tube.swift; sourceTree = "<group>"; };
 		027EADD424338F16005EF01A /* TubeProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TubeProperties.swift; sourceTree = "<group>"; };
-		027EADD72434D205005EF01A /* BaseColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseColor.swift; sourceTree = "<group>"; };
+		027EADD72434D205005EF01A /* TintColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TintColor.swift; sourceTree = "<group>"; };
 		027EADD92434D520005EF01A /* ListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSection.swift; sourceTree = "<group>"; };
 		02E59BB324310AB70005D06A /* HomePager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePager.swift; sourceTree = "<group>"; };
 		0F8961E805A2009045AB486F /* Pods-MiksingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiksingTests.debug.xcconfig"; path = "Target Support Files/Pods-MiksingTests/Pods-MiksingTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -166,8 +164,8 @@
 		02054B8B242A4475003F886B /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				02B51F15244C978900B0B8E2 /* Tint */,
 				020DDE5D24286AFE000DBB42 /* BaseScreen.storyboard */,
-				027EADD72434D205005EF01A /* BaseColor.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -280,7 +278,6 @@
 			children = (
 				0243A978242FD21800E028F4 /* List */,
 				027EADC1243295B5005EF01A /* HomeController.swift */,
-				027EADC32432AA49005EF01A /* HomeDrawer.swift */,
 				02E59BB324310AB70005D06A /* HomePager.swift */,
 				0243A98F242FFBD900E028F4 /* HomeScreen.storyboard */,
 			);
@@ -315,6 +312,14 @@
 				027EADD12433881A005EF01A /* UserHelper.swift */,
 			);
 			path = User;
+			sourceTree = "<group>";
+		};
+		02B51F15244C978900B0B8E2 /* Tint */ = {
+			isa = PBXGroup;
+			children = (
+				027EADD72434D205005EF01A /* TintColor.swift */,
+			);
+			path = Tint;
 			sourceTree = "<group>";
 		};
 		83E5ED8453FB22CCAD6A40C1 /* Pods */ = {
@@ -551,7 +556,7 @@
 				02054B812429B7E0003F886B /* PlayVideo.swift in Sources */,
 				020DDE5024286AFC000DBB42 /* AppDelegate.swift in Sources */,
 				02517818242956650080EC2D /* SongController.swift in Sources */,
-				027EADD82434D205005EF01A /* BaseColor.swift in Sources */,
+				027EADD82434D205005EF01A /* TintColor.swift in Sources */,
 				0251781E242979430080EC2D /* ListHolder.swift in Sources */,
 				027EADDA2434D520005EF01A /* ListSection.swift in Sources */,
 				0243A96C242F6DD200E028F4 /* SongProperties.swift in Sources */,
@@ -563,7 +568,6 @@
 				0251781A24296F980080EC2D /* SongSelected.swift in Sources */,
 				0243A96E242F81E200E028F4 /* DataNotation.swift in Sources */,
 				0243A977242FCF9800E028F4 /* ListController.swift in Sources */,
-				027EADC42432AA49005EF01A /* HomeDrawer.swift in Sources */,
 				027EADC2243295B5005EF01A /* HomeController.swift in Sources */,
 				0243A975242FCEC100E028F4 /* TubeController.swift in Sources */,
 				02E59BB424310AB80005D06A /* HomePager.swift in Sources */,

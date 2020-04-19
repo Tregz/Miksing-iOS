@@ -18,6 +18,7 @@ class ListController<T> : UITableViewController, NSFetchedResultsControllerDeleg
     var descriptors:[String]! { return [] }
     var filters:[Int?]? = []
     var isAscending:[Bool]! { return [] }
+    var searchCancelButtonColor: UIColor { return UIColor.white }
     let sortIcon:[String]! = ["SF_textformat_abc", "SF_calendar_badge_plus"]
     var sorting: Int! = 0
     var sortSection:[String]! { return [] }
@@ -29,7 +30,7 @@ class ListController<T> : UITableViewController, NSFetchedResultsControllerDeleg
         super.viewDidLoad()
         tableView.delegate = self
         tableView.rowHeight = 43.5;
-        tableView.backgroundColor = BaseColor.primaryLight
+        tableView.backgroundColor = TintColor.primaryLight
         setSearchBar()
     }
     
@@ -43,10 +44,10 @@ class ListController<T> : UITableViewController, NSFetchedResultsControllerDeleg
     func setSearchBar() {
         searchController.searchBar.placeholder = "Search"
         if #available(iOS 13.0, *) {
-            searchController.searchBar.searchTextField.backgroundColor = BaseColor.primaryPage
+            searchController.searchBar.searchTextField.backgroundColor = TintColor.primaryPage
         } else {
             let searchField = searchController.searchBar.value(forKey: "searchField") as? UITextField
-            searchField?.backgroundColor = BaseColor.primaryPage
+            searchField?.backgroundColor = TintColor.primaryPage
         }
         searchController.searchBar.delegate = self
         searchController.searchResultsUpdater = self
@@ -54,7 +55,7 @@ class ListController<T> : UITableViewController, NSFetchedResultsControllerDeleg
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        searchBarTitleColor()
+        setSearchCancelButtonColor()
         setAVPanoramicAspect(isPanoramic: false)
     }
     
@@ -73,16 +74,16 @@ class ListController<T> : UITableViewController, NSFetchedResultsControllerDeleg
         NotificationCenter.default.post(name: name, object: nil, userInfo: info)
     }
     
-    private func searchBarTitleColor() {
+    private func setSearchCancelButtonColor() {
         // Cancel button is not yet available on first load
         if !searchCancelButtonShows {
             guard searchController.searchBar.showsCancelButton else {
-                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) { self.searchBarTitleColor() }
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) { self.setSearchCancelButtonColor() }
                 return
             }
             searchCancelButtonShows = true
             let button = searchController.searchBar.value(forKey: "cancelButton") as? UIButton
-            button?.setTitleColor(UIColor.white, for: .normal)
+            button?.setTitleColor(searchCancelButtonColor, for: .normal)
         }
     }
     
@@ -217,7 +218,7 @@ class ListController<T> : UITableViewController, NSFetchedResultsControllerDeleg
     }
     
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        view.tintColor = BaseColor.primaryLight
+        view.tintColor = TintColor.primaryLight
     }
     
     func configureCell(_ cell: ListHolder, withEvent data: T, indexPath: IndexPath) {}

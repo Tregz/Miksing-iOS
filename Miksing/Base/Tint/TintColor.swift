@@ -8,10 +8,11 @@
 
 import UIKit
 
-struct BaseColor {
+struct TintColor {
 
     static let primaryLight = UIColor(red: 1, green: 221/255, blue: 153/255, alpha: 1)
     static let primaryPage = UIColor(red: 1, green: 1, blue: 238/255, alpha: 1)
+    static let systemOrange = UIColor(red: 1, green: 149, blue: 0/255, alpha: 1)
     static let secondaryPage = UIColor(red: 1, green: 238/255, blue: 1, alpha: 1)
     static let secondaryDark = UIColor(red: 17/255, green: 0, blue: 34/255, alpha: 1)
     static let secondaryDarkish = UIColor(red: 68/255, green: 68/255, blue: 102/255, alpha: 1)

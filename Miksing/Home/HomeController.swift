@@ -19,11 +19,6 @@ class HomeController : UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(collapse), name: name, object: nil)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        navigationController?.navigationBar.barStyle = .black
-    }
-    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }

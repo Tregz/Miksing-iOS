@@ -18,7 +18,7 @@ class ListHolder : UITableViewCell {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        backgroundColor = BaseColor.primaryPage
+        backgroundColor = TintColor.primaryPage
         let selectedView = UIView()
         selectedView.backgroundColor = UIColor.white
         selectedBackgroundView = selectedView

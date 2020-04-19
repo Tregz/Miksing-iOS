@@ -14,6 +14,7 @@ class TubeController : ListController<Tube> {
     override var descriptors:[String]! { return [DataNotation.ID] }
     override var sortSection:[String]! { return ["alpha"] }
     override var isAscending:[Bool]! { return [true] }
+    override var searchCancelButtonColor: UIColor { return UIColor.black }
     override var searchQuery: String {
         if (NSLocale.current.languageCode == "fr") { return "(langs.fr contains [cd] %@)" }
         else { return "(langs.en contains [cd] %@)" }
@@ -23,8 +24,8 @@ class TubeController : ListController<Tube> {
         super.viewDidLoad()
         let action = #selector(setDisplayModeToPrimaryHidden(_:))
         let stop = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: action)
-        stop.tintColor = BaseColor.secondaryDark
-        navigationController?.topViewController!.navigationItem.rightBarButtonItem = stop
+        stop.tintColor = TintColor.secondaryDark
+        navigationItem.rightBarButtonItem = stop
     }
     
     override func viewDidAppear(_ animated: Bool) {

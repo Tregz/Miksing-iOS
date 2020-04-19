@@ -12,7 +12,7 @@ class ListSection : UITableViewCell {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        backgroundColor = BaseColor.primaryLight
+        backgroundColor = TintColor.primaryLight
     }
     
 }
