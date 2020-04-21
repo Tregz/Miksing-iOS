@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class TubeController : ListController<Tube> {
+class TubeController : ListController<Tube>, UITabBarDelegate {
     
     override var descriptors:[String]! { return [DataNotation.ID] }
     override var sortSection:[String]! { return ["alpha"] }
@@ -19,6 +19,8 @@ class TubeController : ListController<Tube> {
         if (NSLocale.current.languageCode == "fr") { return "(langs.fr contains [cd] %@)" }
         else { return "(langs.en contains [cd] %@)" }
     }
+    
+    var tabs: UITabBar?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +42,7 @@ class TubeController : ListController<Tube> {
         }
     }
     
-    override func configureCell(_ cell: ListHolder, withEvent tube: Tube, indexPath: IndexPath) {
+    override func configureCell(_ cell: ListRow, withEvent tube: Tube, indexPath: IndexPath) {
         cell.title.text = tube.name ?? ""
         cell.prefix.text = NSLocalizedString("by", tableName: "TubeLocalizable", comment: "") + " "
         cell.subtitle.text = tube.user?.name ?? ""
@@ -63,16 +65,58 @@ class TubeController : ListController<Tube> {
         }
     }
     
-    private func showDetailView(appDelegate: AppDelegate, splitViewController: UISplitViewController) {
-        let info: [String: Int] = [HomePager.notificationPaging: 1]
-        let name = Notification.Name(HomePager.notificationPaging)
-        NotificationCenter.default.post(name: name, object: nil, userInfo: info)
-        splitViewController.showDetailViewController(appDelegate.homeScreen!, sender: self)
+    override func tableView(_ tableView: UITableView,
+        titleForHeaderInSection section: Int) -> String? {
+        if section > 0, let sections = fetchedResultsController?.sections { return sections[section].name }
+        return nil
+    }
+    
+    override func tableView(_ tableView: UITableView,
+        viewForHeaderInSection section: Int) -> UIView? {
+        if section == 0 {
+            let id = ListSection.reuseIdentifier
+            guard let cell = tableView.dequeueReusableHeaderFooterView(withIdentifier: id) as? ListSection
+            else { return nil }
+            return cell
+        } else { return tableView.dequeueReusableHeaderFooterView(withIdentifier: "SectionLabel") }
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        if section == 0, let header = view as? ListSection {
+            header.title.text = fetchedResultsController?.sections?[section].name
+            if tabs == nil {
+                tabs = UITabBar()
+                // Tabs data
+                tabs!.delegate = self
+                let apero = UITabBarItem(title: "Apero", image: UIImage(named: "cocktail"), tag: 0)
+                let bistro = UITabBarItem(title: "Bistro", image: UIImage(named: "charge"), tag: 0)
+                let club = UITabBarItem(title: "Club", image: UIImage(named: "funk"), tag: 0)
+                tabs!.setItems([apero, bistro, club], animated: false)
+                tabs!.selectedItem = apero
+                // Tabs look
+                tabs!.barTintColor = TintColor.primaryOrange
+                tabs!.isTranslucent = false
+                tabs!.tintColor = TintColor.secondaryDarkish
+                // Tabs layout
+                header.cvFilters.addSubview(tabs!)
+                tabs!.leadingAnchor.constraint(equalTo: header.cvFilters.leadingAnchor).isActive = true
+                tabs!.trailingAnchor.constraint(equalTo: header.cvFilters.trailingAnchor).isActive = true
+                tabs!.translatesAutoresizingMaskIntoConstraints = false
+            }
+        }
+        view.tintColor = TintColor.primaryOrange
     }
     
     @objc func setDisplayModeToPrimaryHidden(_ sender: Any?) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let splitViewController = appDelegate.window!.rootViewController as! UISplitViewController
         if viewIfLoaded?.window != nil { splitViewController.preferredDisplayMode = .primaryHidden }
+    }
+    
+    private func showDetailView(appDelegate: AppDelegate, splitViewController: UISplitViewController) {
+        let info: [String: Int] = [HomePager.notificationPaging: 1]
+        let name = Notification.Name(HomePager.notificationPaging)
+        NotificationCenter.default.post(name: name, object: nil, userInfo: info)
+        splitViewController.showDetailViewController(appDelegate.homeScreen!, sender: self)
     }
 }

@@ -31,6 +31,7 @@ class ListController<T> : UITableViewController, NSFetchedResultsControllerDeleg
         tableView.delegate = self
         tableView.rowHeight = 43.5;
         tableView.backgroundColor = TintColor.primaryLight
+        tableView.register(ListSection.self, forHeaderFooterViewReuseIdentifier: ListSection.reuseIdentifier)
         setSearchBar()
     }
     
@@ -107,11 +108,11 @@ class ListController<T> : UITableViewController, NSFetchedResultsControllerDeleg
         case .insert: tableView.insertRows(at: [newIndexPath!], with: .fade)
         case .delete: tableView.deleteRows(at: [indexPath!], with: .fade)
         case .update: if (tableView.cellForRow(at: indexPath!) != nil) {
-            let cell =  tableView.cellForRow(at: indexPath!)! as! ListHolder
+            let cell =  tableView.cellForRow(at: indexPath!)! as! ListRow
             configureCell(cell, withEvent: anObject as! T, indexPath: indexPath!)
         }
         case .move: if (tableView.cellForRow(at: indexPath!) != nil) {
-            let cell =  tableView.cellForRow(at: indexPath!)! as! ListHolder
+            let cell =  tableView.cellForRow(at: indexPath!)! as! ListRow
             configureCell(cell, withEvent: anObject as! T, indexPath: indexPath!)
             tableView.moveRow(at: indexPath!, to: newIndexPath!)
         }
@@ -147,7 +148,7 @@ class ListController<T> : UITableViewController, NSFetchedResultsControllerDeleg
         let sortDescriptor = NSSortDescriptor(key: descriptors![sorting!], ascending: isAscending![sorting!])
         request.sortDescriptors = [sortDescriptor]
         if (context != nil) {
-            let aFetchedResultsController = NSFetchedResultsController(fetchRequest:request, managedObjectContext:context!, sectionNameKeyPath:sortSection![sorting!], cacheName: "ListCache")
+            let aFetchedResultsController = NSFetchedResultsController(fetchRequest:request, managedObjectContext: context!, sectionNameKeyPath: sortSection![sorting!], cacheName: "ListCache")
             aFetchedResultsController.delegate = self
             _fetchedResultsController = aFetchedResultsController
             fetchUpdate()
@@ -193,7 +194,7 @@ class ListController<T> : UITableViewController, NSFetchedResultsControllerDeleg
 
     override func tableView(_ tableView: UITableView,
         cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ListHolder
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ListRow
         let song = fetchedResultsController?.object(at: indexPath)
         if song != nil { configureCell(cell, withEvent: song!, indexPath: indexPath) }
         return cell
@@ -212,15 +213,13 @@ class ListController<T> : UITableViewController, NSFetchedResultsControllerDeleg
     
     override func tableView(_ tableView: UITableView,
         viewForHeaderInSection section: Int) -> UIView? {
-        let cell = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SectionLabel")
-        cell?.textLabel?.text = fetchedResultsController?.sections?[section].name
-        return cell
+        return tableView.dequeueReusableHeaderFooterView(withIdentifier: "SectionLabel")
     }
     
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        view.tintColor = TintColor.primaryLight
+        view.tintColor = TintColor.primaryOrange
     }
     
-    func configureCell(_ cell: ListHolder, withEvent data: T, indexPath: IndexPath) {}
+    func configureCell(_ cell: ListRow, withEvent data: T, indexPath: IndexPath) {}
     
 }

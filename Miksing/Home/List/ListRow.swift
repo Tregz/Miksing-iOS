@@ -7,7 +7,7 @@
 //
 import UIKit
 
-class ListHolder : UITableViewCell {
+class ListRow : UITableViewCell {
     
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var prefix: UILabel!

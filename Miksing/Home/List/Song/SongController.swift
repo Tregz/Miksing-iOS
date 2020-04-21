@@ -35,7 +35,7 @@ class SongController : ListController<Song> {
     
     // MARK: - Table view data source
                 
-    override func configureCell(_ cell: ListHolder, withEvent song: Song, indexPath: IndexPath) {
+    override func configureCell(_ cell: ListRow, withEvent song: Song, indexPath: IndexPath) {
         let text = NSMutableAttributedString()
         let font1 = UIFont.systemFont(ofSize: 17)
         let attribute1:[NSAttributedString.Key: Any] = [.font : font1]
