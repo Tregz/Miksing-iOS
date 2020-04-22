@@ -19,7 +19,6 @@
 		020DDE7524286AFE000DBB42 /* MiksingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020DDE7424286AFE000DBB42 /* MiksingUITests.swift */; };
 		020DDE852428EE84000DBB42 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 020DDE842428EE84000DBB42 /* GoogleService-Info.plist */; };
 		023A34E4244CFAE1001AD8C2 /* ViewCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023A34E3244CFAE1001AD8C2 /* ViewCollection.swift */; };
-		023A34E7244D27F9001AD8C2 /* MenuFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023A34E6244D27F9001AD8C2 /* MenuFilters.swift */; };
 		0243A96B242F6DD200E028F4 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0243A969242F6DD200E028F4 /* Song.swift */; };
 		0243A96C242F6DD200E028F4 /* SongProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0243A96A242F6DD200E028F4 /* SongProperties.swift */; };
 		0243A96E242F81E200E028F4 /* DataNotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0243A96D242F81E200E028F4 /* DataNotation.swift */; };
@@ -38,6 +37,8 @@
 		027EADD624338F16005EF01A /* TubeProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027EADD424338F16005EF01A /* TubeProperties.swift */; };
 		027EADD82434D205005EF01A /* TintColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027EADD72434D205005EF01A /* TintColor.swift */; };
 		027EADDA2434D520005EF01A /* ListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027EADD92434D520005EF01A /* ListSection.swift */; };
+		02E37E84244F6E3A00C663BC /* TubeChoices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E37E83244F6E3A00C663BC /* TubeChoices.swift */; };
+		02E37E86244FAB9C00C663BC /* TubeHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E37E85244FAB9C00C663BC /* TubeHeader.swift */; };
 		02E59BB424310AB80005D06A /* HomePager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E59BB324310AB70005D06A /* HomePager.swift */; };
 		23BD2E390CAC68383577311C /* libPods-MiksingTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E8DC5DD92E390577D9A35959 /* libPods-MiksingTests.a */; };
 		412D002F261992573F7DBF8C /* libPods-Miksing.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31B3133834A6CA6F0B8227F0 /* libPods-Miksing.a */; };
@@ -80,7 +81,6 @@
 		020DDE7624286AFE000DBB42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		020DDE842428EE84000DBB42 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		023A34E3244CFAE1001AD8C2 /* ViewCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCollection.swift; sourceTree = "<group>"; };
-		023A34E6244D27F9001AD8C2 /* MenuFilters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuFilters.swift; sourceTree = "<group>"; };
 		0243A969242F6DD200E028F4 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		0243A96A242F6DD200E028F4 /* SongProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongProperties.swift; sourceTree = "<group>"; };
 		0243A96D242F81E200E028F4 /* DataNotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataNotation.swift; sourceTree = "<group>"; };
@@ -101,6 +101,8 @@
 		027EADD424338F16005EF01A /* TubeProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TubeProperties.swift; sourceTree = "<group>"; };
 		027EADD72434D205005EF01A /* TintColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TintColor.swift; sourceTree = "<group>"; };
 		027EADD92434D520005EF01A /* ListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSection.swift; sourceTree = "<group>"; };
+		02E37E83244F6E3A00C663BC /* TubeChoices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TubeChoices.swift; sourceTree = "<group>"; };
+		02E37E85244FAB9C00C663BC /* TubeHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TubeHeader.swift; sourceTree = "<group>"; };
 		02E59BB324310AB70005D06A /* HomePager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePager.swift; sourceTree = "<group>"; };
 		0F8961E805A2009045AB486F /* Pods-MiksingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiksingTests.debug.xcconfig"; path = "Target Support Files/Pods-MiksingTests/Pods-MiksingTests.debug.xcconfig"; sourceTree = "<group>"; };
 		31B3133834A6CA6F0B8227F0 /* libPods-Miksing.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Miksing.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -250,14 +252,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		023A34E5244D27D1001AD8C2 /* Menu */ = {
-			isa = PBXGroup;
-			children = (
-				023A34E6244D27F9001AD8C2 /* MenuFilters.swift */,
-			);
-			path = Menu;
-			sourceTree = "<group>";
-		};
 		0243A960242F663000E028F4 /* Song */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,6 +266,7 @@
 			children = (
 				0243A974242FCEC100E028F4 /* TubeController.swift */,
 				0243A983242FF62100E028F4 /* TubeLocalizable.strings */,
+				02E37E85244FAB9C00C663BC /* TubeHeader.swift */,
 			);
 			path = Tube;
 			sourceTree = "<group>";
@@ -292,6 +287,7 @@
 			isa = PBXGroup;
 			children = (
 				027EADD324338F16005EF01A /* Tube.swift */,
+				02E37E83244F6E3A00C663BC /* TubeChoices.swift */,
 				027EADD424338F16005EF01A /* TubeProperties.swift */,
 			);
 			path = Tube;
@@ -301,7 +297,6 @@
 			isa = PBXGroup;
 			children = (
 				0243A978242FD21800E028F4 /* List */,
-				023A34E5244D27D1001AD8C2 /* Menu */,
 				027EADC1243295B5005EF01A /* HomeController.swift */,
 				02E59BB324310AB70005D06A /* HomePager.swift */,
 				0243A98F242FFBD900E028F4 /* HomeScreen.storyboard */,
@@ -579,9 +574,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				023A34E7244D27F9001AD8C2 /* MenuFilters.swift in Sources */,
 				02054B812429B7E0003F886B /* PlayVideo.swift in Sources */,
+				02E37E84244F6E3A00C663BC /* TubeChoices.swift in Sources */,
 				020DDE5024286AFC000DBB42 /* AppDelegate.swift in Sources */,
+				02E37E86244FAB9C00C663BC /* TubeHeader.swift in Sources */,
 				02517818242956650080EC2D /* SongController.swift in Sources */,
 				027EADD82434D205005EF01A /* TintColor.swift in Sources */,
 				0251781E242979430080EC2D /* ListRow.swift in Sources */,

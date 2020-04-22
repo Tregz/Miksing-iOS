@@ -17,7 +17,7 @@ class ListSection : UITableViewHeaderFooterView {
     
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
-        contentView.heightAnchor.constraint(equalToConstant: 68.0).isActive = true
+        contentView.heightAnchor.constraint(equalToConstant: 28.0).isActive = true
         contentView.addSubview(stVertical)
         stVertical.axis = .vertical
         stVertical.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor).isActive = true
@@ -26,7 +26,7 @@ class ListSection : UITableViewHeaderFooterView {
         
         stVertical.addArrangedSubview(cvFilters)
         cvFilters.backgroundColor = UIColor.green
-        cvFilters.heightAnchor.constraint(equalToConstant: 40.0).isActive = true
+        cvFilters.heightAnchor.constraint(equalToConstant: 0.0).isActive = true
         cvFilters.leadingAnchor.constraint(equalTo: stVertical.leadingAnchor).isActive = true
         cvFilters.trailingAnchor.constraint(equalTo: stVertical.trailingAnchor).isActive = true
         cvFilters.translatesAutoresizingMaskIntoConstraints = false

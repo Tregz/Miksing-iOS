@@ -29,9 +29,9 @@ class ListController<T> : UITableViewController, NSFetchedResultsControllerDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
-        tableView.rowHeight = 43.5;
         tableView.backgroundColor = TintColor.primaryLight
         tableView.register(ListSection.self, forHeaderFooterViewReuseIdentifier: ListSection.reuseIdentifier)
+        tableView.rowHeight = 43.5;
         setSearchBar()
     }
     
@@ -52,7 +52,10 @@ class ListController<T> : UITableViewController, NSFetchedResultsControllerDeleg
         }
         searchController.searchBar.delegate = self
         searchController.searchResultsUpdater = self
-        if #available(iOS 11.0, *) { navigationItem.searchController = searchController }
+        if #available(iOS 11.0, *) {
+            navigationItem.searchController = searchController
+            navigationItem.searchController?.isActive = false
+        }
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
@@ -186,7 +189,7 @@ class ListController<T> : UITableViewController, NSFetchedResultsControllerDeleg
         tableView.reloadData()
     }
     
-    // MARK: - Table view data source
+    // MARK: - Table view
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return fetchedResultsController?.sections?.count ?? 0

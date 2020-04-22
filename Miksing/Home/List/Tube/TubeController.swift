@@ -9,7 +9,9 @@
 import UIKit
 import CoreData
 
-class TubeController : ListController<Tube>, UITabBarDelegate {
+class TubeController : ListController<Tube>,
+    UICollectionViewDataSource,
+    UITabBarDelegate {
     
     override var descriptors:[String]! { return [DataNotation.ID] }
     override var sortSection:[String]! { return ["alpha"] }
@@ -20,18 +22,33 @@ class TubeController : ListController<Tube>, UITabBarDelegate {
         else { return "(langs.en contains [cd] %@)" }
     }
     
-    var tabs: UITabBar?
+    private var tabs: UITabBar?
+    private let filterCell = "FilterCell"
+    @IBOutlet weak var filterView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let action = #selector(setDisplayModeToPrimaryHidden(_:))
-        let stop = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: action)
+        /* let expand = #selector(tabsVisibility(_:))
+        let tag = UIImage(named: "SF_tag_fill")
+        let options = UIBarButtonItem(image: tag, style: .done, target: self, action: expand)
+        options.tintColor = TintColor.secondaryDark
+        navigationItem.leftBarButtonItem = options */
+        
+        let button =  UIButton(type: .custom)
+        button.setTitle(navigationItem.title, for: .normal)
+        button.setTitleColor(TintColor.secondaryDark, for: .normal)
+        button.addTarget(self, action: #selector(headerVisibility(_:)), for: .touchUpInside)
+        navigationItem.titleView = button
+        
+        let hide = #selector(setDisplayModeToPrimaryHidden(_:))
+        let stop = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: hide)
         stop.tintColor = TintColor.secondaryDark
         navigationItem.rightBarButtonItem = stop
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        // Set navigation views for screen size
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let splitViewController = appDelegate.window!.rootViewController as! UISplitViewController
         if splitViewController.preferredDisplayMode == .primaryHidden {
@@ -40,7 +57,103 @@ class TubeController : ListController<Tube>, UITabBarDelegate {
                 self.showDetailView(appDelegate: appDelegate, splitViewController: splitViewController)
             }
         }
+        // Load header menu
+        guard let header = tableView.tableHeaderView else { return }
+        let height = header.frame.height
+        let width = header.frame.width
+        filterView.collectionViewLayout = ViewCollection.layout(columns: 3, width: width, height: height)
+        filterView.backgroundColor = TintColor.primaryLight
+        filterView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: filterCell)
+        filterView.dataSource = self
     }
+
+    
+    override func viewDidLayoutSubviews() {
+        /* if tabs == nil {
+            tabs = UITabBar()
+            // Tabs data
+            tabs!.delegate = self
+            let apero = UITabBarItem(title: "Apero", image: UIImage(named: "cocktail"), tag: 0)
+            let bistro = UITabBarItem(title: "Bistro", image: UIImage(named: "charge"), tag: 0)
+            let club = UITabBarItem(title: "Club", image: UIImage(named: "funk"), tag: 0)
+            tabs!.setItems([apero, bistro, club], animated: false)
+            tabs!.selectedItem = apero
+            // Tabs look
+            tabs!.barTintColor = TintColor.primaryOrange
+            tabs!.isTranslucent = false
+            tabs!.tintColor = TintColor.secondaryDarkish
+            // Tabs layout
+            header.addSubview(tabs!)
+            tabs!.leadingAnchor.constraint(equalTo: header.leadingAnchor).isActive = true
+            tabs!.trailingAnchor.constraint(equalTo: header.trailingAnchor).isActive = true
+            tabs!.translatesAutoresizingMaskIntoConstraints = false
+        } */
+    }
+    
+    @objc func setDisplayModeToPrimaryHidden(_ sender: Any?) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let splitViewController = appDelegate.window!.rootViewController as! UISplitViewController
+        if viewIfLoaded?.window != nil { splitViewController.preferredDisplayMode = .primaryHidden }
+    }
+    
+    @objc func headerVisibility(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        guard let header = tableView.tableHeaderView else { return }
+        if sender.isSelected { header.frame.size.height = 0 }
+        else { header.frame.size.height = CGFloat(44) }
+        tableView.tableHeaderView = header
+        UIView.animate(withDuration: 0.1, animations: {
+            self.tableView.layoutIfNeeded()
+        })
+    }
+    
+    private func showDetailView(appDelegate: AppDelegate, splitViewController: UISplitViewController) {
+        let info: [String: Int] = [HomePager.notificationPaging: 1]
+        let name = Notification.Name(HomePager.notificationPaging)
+        NotificationCenter.default.post(name: name, object: nil, userInfo: info)
+        splitViewController.showDetailViewController(appDelegate.homeScreen!, sender: self)
+    }
+    
+    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+    
+    }
+    
+    // MARK: - Collection view
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: filterCell, for:indexPath)
+        let button = UIButton(frame:CGRect(x: 0, y: 0, width: cell.frame.width, height: cell.frame.height))
+        button.setImage(UIImage(named: TubeAtmosphere.allCases[indexPath.row].icon), for: .normal)
+        button.setTitle(TubeAtmosphere.allCases[indexPath.row].name, for: .normal)
+        button.setTitleColor(UIColor.darkGray, for: .normal)
+        button.tintColor = UIColor.darkGray
+        button.tag = indexPath.row
+        button.addTarget(self, action: #selector(selectItemAt(_:)), for: .touchUpInside)
+        cell.addSubview(button)
+        return cell
+    }
+    
+    @objc func selectItemAt(_ sender: UIButton) {
+        print("button selected \(sender.tag)")
+        sender.isSelected = !sender.isSelected
+        if sender.isSelected {
+                //filters!.append(idea)
+                sender.tintColor = TintColor.secondaryDarkish
+                sender.setTitleColor(TintColor.secondaryDark, for: .normal)
+            } else {
+                //filters!.remove(at:filters!.index(of:idea)!)
+                sender.setTitleColor(UIColor.darkGray, for: .normal)
+                sender.tintColor = UIColor.darkGray
+            }
+        //}
+        fetchUpdate()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return TubeAtmosphere.allCases.count
+    }
+    
+    // MARK: - Table view
     
     override func configureCell(_ cell: ListRow, withEvent tube: Tube, indexPath: IndexPath) {
         cell.title.text = tube.name ?? ""
@@ -55,6 +168,7 @@ class TubeController : ListController<Tube>, UITabBarDelegate {
     
     override func tableView(_ tableView: UITableView,
         didSelectRowAt indexPath: IndexPath) {
+        print("tableView didSelect \(indexPath.row)")
         if (tableView.cellForRow(at:indexPath) != nil) {
             let tubeId: String = fetchedResultsController?.object(at: indexPath).id ?? ""
             SongSelected.selectedRelationEntityId = tubeId
@@ -84,39 +198,7 @@ class TubeController : ListController<Tube>, UITabBarDelegate {
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         if section == 0, let header = view as? ListSection {
             header.title.text = fetchedResultsController?.sections?[section].name
-            if tabs == nil {
-                tabs = UITabBar()
-                // Tabs data
-                tabs!.delegate = self
-                let apero = UITabBarItem(title: "Apero", image: UIImage(named: "cocktail"), tag: 0)
-                let bistro = UITabBarItem(title: "Bistro", image: UIImage(named: "charge"), tag: 0)
-                let club = UITabBarItem(title: "Club", image: UIImage(named: "funk"), tag: 0)
-                tabs!.setItems([apero, bistro, club], animated: false)
-                tabs!.selectedItem = apero
-                // Tabs look
-                tabs!.barTintColor = TintColor.primaryOrange
-                tabs!.isTranslucent = false
-                tabs!.tintColor = TintColor.secondaryDarkish
-                // Tabs layout
-                header.cvFilters.addSubview(tabs!)
-                tabs!.leadingAnchor.constraint(equalTo: header.cvFilters.leadingAnchor).isActive = true
-                tabs!.trailingAnchor.constraint(equalTo: header.cvFilters.trailingAnchor).isActive = true
-                tabs!.translatesAutoresizingMaskIntoConstraints = false
-            }
         }
         view.tintColor = TintColor.primaryOrange
-    }
-    
-    @objc func setDisplayModeToPrimaryHidden(_ sender: Any?) {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let splitViewController = appDelegate.window!.rootViewController as! UISplitViewController
-        if viewIfLoaded?.window != nil { splitViewController.preferredDisplayMode = .primaryHidden }
-    }
-    
-    private func showDetailView(appDelegate: AppDelegate, splitViewController: UISplitViewController) {
-        let info: [String: Int] = [HomePager.notificationPaging: 1]
-        let name = Notification.Name(HomePager.notificationPaging)
-        NotificationCenter.default.post(name: name, object: nil, userInfo: info)
-        splitViewController.showDetailViewController(appDelegate.homeScreen!, sender: self)
     }
 }
