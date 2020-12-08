@@ -1,45 +1,29 @@
-
-/* Class = "UILabel"; text = "Subtitle"; ObjectID = "14N-iV-58e"; */
-"14N-iV-58e.text" = "Subtitle";
-
-/* Class = "UILabel"; text = "Title"; ObjectID = "7w3-of-hyZ"; */
-"7w3-of-hyZ.text" = "Title";
-
-/* Class = "UILabel"; text = "Title"; ObjectID = "9vf-WN-M8o"; */
-"9vf-WN-M8o.text" = "Title";
-
 /* Class = "UITabBarItem"; title = "Playlist"; ObjectID = "BJQ-iW-RQP"; */
 "BJQ-iW-RQP.title" = "Collection";
-
-/* Class = "UINavigationItem"; title = "Playlist"; ObjectID = "DQe-ee-7FY"; */
-"DQe-ee-7FY.title" = "Playlist";
 
 /* Class = "UILabel"; text = "Title"; ObjectID = "GB0-Vm-OcU"; */
 "GB0-Vm-OcU.text" = "Title";
 
-/* Class = "UINavigationItem"; title = "Prepare"; ObjectID = "OPy-AI-N9Z"; */
-"OPy-AI-N9Z.title" = "Prepare";
-
 /* Class = "UILabel"; text = "Title"; ObjectID = "Opk-AV-dBK"; */
 "Opk-AV-dBK.text" = "Title";
-
-/* Class = "UILabel"; text = "Subtitle"; ObjectID = "WuT-VD-Eur"; */
-"WuT-VD-Eur.text" = "Subtitle";
-
-/* Class = "UIBarButtonItem"; title = "A-Z"; ObjectID = "cyz-if-hG4"; */
-"cyz-if-hG4.title" = "A-Z";
-
-/* Class = "UILabel"; text = "Subtitle"; ObjectID = "nFO-xe-l9F"; */
-"nFO-xe-l9F.text" = "Subtitle";
-
-/* Class = "UILabel"; text = "Title"; ObjectID = "vYj-iO-P9a"; */
-"vYj-iO-P9a.text" = "Title";
-
-/* Class = "UILabel"; text = "Title"; ObjectID = "xLG-aO-IeS"; */
-"xLG-aO-IeS.text" = "Title";
 
 /* Class = "UITabBarItem"; title = "Prepare"; ObjectID = "xoU-Wc-9iG"; */
 "xoU-Wc-9iG.title" = "Preparation";
 
 /* Class = "UINavigationItem"; title = "Playlists"; ObjectID = "yDB-mv-KHe"; */
 "yDB-mv-KHe.title" = "Playlists";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "HXC-IR-8il"; */
+"HXC-IR-8il.text" = "";
+
+/* Class = "UILabel"; text = "Subtitle"; ObjectID = "Jds-cg-ooD"; */
+"Jds-cg-ooD.text" = "";
+
+/* Class = "UILabel"; text = "Subtitle"; ObjectID = "YGf-W9-czF"; */
+"YGf-W9-czF.text" = "";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "ejU-rs-J3F"; */
+"ejU-rs-J3F.text" = "";
+
+/* Class = "UILabel"; text = "Subtitle"; ObjectID = "vmb-Cf-3o2"; */
+"vmb-Cf-3o2.text" = "";

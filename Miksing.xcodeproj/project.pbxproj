@@ -785,7 +785,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Miksing/Preview Content\"";
-				DEVELOPMENT_TEAM = 3FMMXW2D22;
+				DEVELOPMENT_TEAM = 4SRBQLVSU3;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Miksing/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -808,7 +808,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Miksing/Preview Content\"";
-				DEVELOPMENT_TEAM = 3FMMXW2D22;
+				DEVELOPMENT_TEAM = 4SRBQLVSU3;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Miksing/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
